@@ -1,0 +1,12 @@
+<resources>
+    <style name="Theme.PassLoss" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="editTextStyle">@style/Theme.PassLoss.EditText</item>
+        <item name="actionMenuTextColor">@color/black</item>
+    </style>
+    <style name="Theme.PassLoss.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:paddingHorizontal">10dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:inputType">textPersonName</item>
+        <item name="android:imeOptions">actionDone</item>
+    </style>
+</resources>

@@ -1,0 +1,58 @@
+buildscript {
+
+    ext {
+        appcompat =
+                'androidx.appcompat:appcompat:1.4.1'
+        core_ktx =
+                'androidx.core:core-ktx:1.7.0'
+        activity_ktx =
+                'androidx.activity:activity-ktx:1.4.0'
+        fragment_ktx =
+                'androidx.fragment:fragment-ktx:1.4.1'
+        lifecycle_viewmodel_ktx =
+                'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+        lifecycle_livedata_ktx =
+                'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+        datastore_preferences =
+                'androidx.datastore:datastore-preferences:1.0.0'
+        constraintlayout =
+                'androidx.constraintlayout:constraintlayout:2.1.3'
+        room_runtime =
+                "androidx.room:room-runtime:2.4.2"
+        room_compiler =
+                "androidx.room:room-compiler:2.4.2"
+        coroutines_core =
+                'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0'
+        coroutines_android =
+                'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
+        retrofit =
+                'com.squareup.retrofit2:retrofit:2.9.0'
+        converter_gson =
+                'com.squareup.retrofit2:converter-gson:2.9.0'
+        logging_interceptor =
+                'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.5'
+        material =
+                'com.google.android.material:material:1.5.0'
+        hilt_android =
+                'com.google.dagger:hilt-android:2.41'
+        hilt_compiler =
+                'com.google.dagger:hilt-compiler:2.41'
+    }
+
+    dependencies {
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.41'
+        classpath 'org.jlleitschuh.gradle:ktlint-gradle:10.0.0'
+    }
+
+}
+
+plugins {
+    id 'com.android.application' version '7.1.3' apply false
+    id 'com.android.library' version '7.1.3' apply false
+    id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
+    id 'org.jetbrains.kotlin.jvm' version '1.6.10' apply false
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

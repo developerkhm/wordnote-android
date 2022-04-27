@@ -1,0 +1,49 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'org.jlleitschuh.gradle.ktlint'
+}
+
+apply from: rootProject.file("android.gradle")
+
+android {
+
+    defaultConfig {
+        applicationId "com.donghyeon.wordnote"
+        versionCode 1
+        versionName "0.0.1"
+    }
+
+    signingConfigs {
+        release {
+            storeFile rootProject.file('wordnote')
+            storePassword 'wordnote'
+            keyAlias 'wordnote'
+            keyPassword 'wordnote'
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation project(":data")
+    implementation project(":domain")
+    implementation project(":presentation")
+    implementation rootProject.ext.material
+    implementation rootProject.ext.datastore_preferences
+    implementation rootProject.ext.room_runtime
+    kapt rootProject.ext.room_compiler
+    implementation rootProject.ext.hilt_android
+    kapt rootProject.ext.hilt_compiler
+}
