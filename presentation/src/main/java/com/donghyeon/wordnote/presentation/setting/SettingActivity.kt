@@ -20,6 +20,8 @@ class SettingActivity : BaseActivity<ActivitySettingBinding, SettingViewModel>(
         binding.vm = viewModel
         setSupportActionBar(binding.tbTitle)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        val version = "v"+ packageManager.getPackageInfo(packageName, 0).versionName
+        binding.tvVersion.text = version
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
