@@ -51,7 +51,7 @@ class MainViewModel @Inject constructor(
     fun selectedItem(itemData: ItemData) {
     }
 
-    fun menuItem(itemData: ItemData) {
+    fun removeItem(itemData: ItemData) {
         viewModelScope.launch {
             itemUseCase.removeItem(itemData).collect {
                 _itemDataList.value = it

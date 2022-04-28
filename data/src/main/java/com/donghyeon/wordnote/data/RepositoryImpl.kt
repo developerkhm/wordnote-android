@@ -23,8 +23,8 @@ class RepositoryImpl @Inject constructor(
             ItemData(it.id, it.word, it.description)
         }
 
-    override suspend fun removeItem(data: ItemData) =
+    override suspend fun removeItem(itemData: ItemData) =
         localDataSource.removeItem(
-            Item(data.no, data.word, data.description)
+            Item(itemData.no, itemData.word, itemData.description)
         )
 }
