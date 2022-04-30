@@ -14,17 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".setting.SettingActivity">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/tb_title"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:elevation="4dp"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:title="@string/setting"
-            app:layout_constraintTop_toTopOf="parent"/>
+        tools:context=".setting.SettingFragment">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_version"

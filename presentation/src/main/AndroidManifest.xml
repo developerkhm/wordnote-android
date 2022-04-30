@@ -9,7 +9,5 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".add.AddActivity"/>
-        <activity android:name=".setting.SettingActivity"/>
     </application>
 </manifest>

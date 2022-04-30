@@ -8,26 +8,21 @@
 
         <variable
             name="vm"
-            type="com.donghyeon.wordnote.presentation.main.MainViewModel"/>
+            type="com.donghyeon.wordnote.presentation.read.ReadViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".main.MainActivity">
+        tools:context=".read.ReadFragment">
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fcv_container"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/bnv_menu"/>
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bnv_menu"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:menu="@menu/menu"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:listitem="@layout/recycler_item"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
