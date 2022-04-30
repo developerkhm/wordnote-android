@@ -1,4 +1,4 @@
-package com.donghyeon.wordnote.presentation.main
+package com.donghyeon.wordnote.presentation.read
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,8 +7,8 @@ import com.donghyeon.wordnote.domain.model.ItemData
 import com.donghyeon.wordnote.presentation.base.BaseAdapter
 import com.donghyeon.wordnote.presentation.databinding.RecyclerItemBinding
 
-class MainAdapter(
-    private val viewModel: MainViewModel,
+class ReadAdapter(
+    private val viewModel: ReadViewModel,
 ) : BaseAdapter<ItemData>(viewModel.diffUtil) {
 
     override fun onCreateViewHolder(
@@ -17,16 +17,16 @@ class MainAdapter(
     ): RecyclerView.ViewHolder {
         binding = RecyclerItemBinding
             .inflate(LayoutInflater.from(parent.context), parent, false)
-        return MainViewHolder(binding as RecyclerItemBinding)
+        return ViewHolder(binding as RecyclerItemBinding)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (holder is MainViewHolder) {
+        if (holder is ViewHolder) {
             holder.bind(getItem(position) as ItemData)
         }
     }
 
-    inner class MainViewHolder(
+    inner class ViewHolder(
         private val binding: RecyclerItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 

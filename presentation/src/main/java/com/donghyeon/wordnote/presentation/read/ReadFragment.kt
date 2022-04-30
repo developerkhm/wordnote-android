@@ -16,5 +16,7 @@ class ReadFragment : BaseFragment<FragmentReadBinding, ReadViewModel>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
+        binding.rvList.adapter = ReadAdapter(viewModel)
+        viewModel.getItemAll()
     }
 }
