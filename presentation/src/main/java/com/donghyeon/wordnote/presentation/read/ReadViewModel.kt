@@ -16,9 +16,6 @@ class ReadViewModel @Inject constructor(
     private val itemUseCase: ItemUseCase
 ) : BaseViewModel() {
 
-//    private val _mainState = MutableLiveData<MainState>()
-//    val mainState: LiveData<MainState> = _mainState
-
     private val _itemDataList = MutableLiveData<List<ItemData>>()
     val itemDataList: LiveData<List<ItemData>> = _itemDataList
 
@@ -40,8 +37,7 @@ class ReadViewModel @Inject constructor(
         }
     }
 
-    fun selectedItem(itemData: ItemData) {
-    }
+    fun selectedItem(itemData: ItemData) {}
 
     fun removeItem(itemData: ItemData) {
         viewModelScope.launch {

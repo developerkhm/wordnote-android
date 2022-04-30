@@ -19,6 +19,10 @@ class AddViewModel @Inject constructor(
     private val _addState = MutableLiveData<AddState>()
     val addState: LiveData<AddState> = _addState
 
+    fun getNote() {
+        _addState.value = AddState.Note("나의 단어장")
+    }
+
     fun add() {
         viewModelScope.launch {
             addModel.value?.let { addModel ->

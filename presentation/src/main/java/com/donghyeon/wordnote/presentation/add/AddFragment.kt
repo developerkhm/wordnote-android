@@ -16,5 +16,18 @@ class AddFragment : BaseFragment<FragmentAddBinding, AddViewModel>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
+        viewModel.addState.observe(viewLifecycleOwner) {
+            when (it) {
+                is AddState.Note -> binding.btNote.text = it.note
+                is AddState.InputCheck -> showToast(getString(R.string.toast_input_check))
+                is AddState.Failed -> showToast(getString(R.string.toast_add_failed))
+                is AddState.Complete -> {
+                    binding.etWord.setText("")
+                    binding.etDescription.setText("")
+                    showToast(getString(R.string.toast_add_complete))
+                }
+            }
+        }
+        viewModel.getNote()
     }
 }

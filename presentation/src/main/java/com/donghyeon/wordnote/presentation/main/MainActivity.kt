@@ -35,6 +35,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
             }
             return@setOnItemSelectedListener true
         }
+        binding.bnvMenu.selectedItemId = R.id.m_read
     }
 
     private fun setFragment(fragment: Fragment) {
