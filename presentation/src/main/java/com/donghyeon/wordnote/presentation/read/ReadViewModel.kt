@@ -31,7 +31,7 @@ class ReadViewModel @Inject constructor(
 
     fun getItemAll() {
         viewModelScope.launch {
-            itemUseCase.getItemAll().collect {
+            itemUseCase.getItemList().collect {
                 _itemDataList.value = it
             }
         }

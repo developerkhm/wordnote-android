@@ -20,14 +20,19 @@ class AddViewModel @Inject constructor(
     val addState: LiveData<AddState> = _addState
 
     fun getNote() {
-        _addState.value = AddState.Note("나의 단어장")
+        viewModelScope.launch {
+            itemUseCase.getNote().collect {
+                addModel.value = AddModel(noteId = it.id, note = it.note)
+            }
+        }
     }
 
-    fun add() {
+    fun addItem() {
         viewModelScope.launch {
             addModel.value?.let { addModel ->
                 if (addModel.word != "" && addModel.description != "") {
-                    itemUseCase.add(
+                    itemUseCase.addItem(
+                        addModel.noteId,
                         addModel.word,
                         addModel.description
                     ).collect { result ->

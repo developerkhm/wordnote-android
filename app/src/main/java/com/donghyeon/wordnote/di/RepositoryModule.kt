@@ -24,7 +24,7 @@ import javax.inject.Singleton
 object RepositoryModule {
 
     private val Context.dataStore: DataStore<Preferences>
-        by preferencesDataStore("Patrol")
+        by preferencesDataStore("WordNote")
 
     @Singleton
     @Provides
@@ -46,7 +46,7 @@ object RepositoryModule {
         return Room.databaseBuilder(
             application,
             RoomService::class.java,
-            "PassLoss"
+            "WordNote"
         )
             .fallbackToDestructiveMigration()
             .build()

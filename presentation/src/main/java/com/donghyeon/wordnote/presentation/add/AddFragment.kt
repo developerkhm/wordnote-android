@@ -18,7 +18,6 @@ class AddFragment : BaseFragment<FragmentAddBinding, AddViewModel>(
         binding.vm = viewModel
         viewModel.addState.observe(viewLifecycleOwner) {
             when (it) {
-                is AddState.Note -> binding.btNote.text = it.note
                 is AddState.InputCheck -> showToast(getString(R.string.toast_input_check))
                 is AddState.Failed -> showToast(getString(R.string.toast_add_failed))
                 is AddState.Complete -> {

@@ -7,16 +7,19 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
-interface ItemDao {
+interface Dao {
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun addNote(note: Note)
+
+    @Query("SELECT * FROM Note")
+    fun getNoteList(): List<Note>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addItem(item: Item)
 
-    @Query("SELECT * FROM Item")
-    fun getItemAll(): List<Item>
-
-    @Query("SELECT * FROM Item WHERE id = :id")
-    fun getItem(id: Long): Item
+    @Query("SELECT * FROM Item WHERE noteId = :noteId")
+    fun getItemList(noteId: Long): List<Item>
 
     @Delete
     fun removeItem(item: Item)
