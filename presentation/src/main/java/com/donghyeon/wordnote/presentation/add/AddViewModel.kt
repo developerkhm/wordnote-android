@@ -16,7 +16,7 @@ class AddViewModel @Inject constructor(
 
     val addModel = MutableLiveData(AddModel())
 
-    private val _addState = MutableLiveData<AddState>()
+    private val _addState = MutableLiveData<AddState>(AddState.None)
     val addState: LiveData<AddState> = _addState
 
     fun getNote() {
@@ -36,7 +36,10 @@ class AddViewModel @Inject constructor(
                         addModel.word,
                         addModel.description
                     ).collect { result ->
-                        _addState.value = if (result) AddState.Complete else AddState.Failed
+                        if (result) {
+                            _addState.value = AddState.Complete
+                            _addState.value = AddState.None
+                        } else _addState.value = AddState.Failed
                     }
                 } else _addState.value = AddState.InputCheck
             }

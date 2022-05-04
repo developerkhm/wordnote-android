@@ -25,6 +25,7 @@ class AddFragment : BaseFragment<FragmentAddBinding, AddViewModel>(
                     binding.etDescription.setText("")
                     showToast(getString(R.string.toast_add_complete))
                 }
+                is AddState.None -> {}
             }
         }
         viewModel.getNote()
