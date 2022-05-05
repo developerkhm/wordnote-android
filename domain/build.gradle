@@ -8,4 +8,5 @@ apply from: rootProject.file("android.gradle")
 
 dependencies {
     implementation rootProject.ext.coroutines_core
+    implementation rootProject.ext.timber
 }

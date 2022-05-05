@@ -33,17 +33,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
     implementation project(":data")
     implementation project(":domain")
     implementation project(":presentation")
+    implementation rootProject.ext.timber
     implementation rootProject.ext.material
     implementation rootProject.ext.datastore_preferences
     implementation rootProject.ext.room_runtime
     kapt rootProject.ext.room_compiler
     implementation rootProject.ext.hilt_android
     kapt rootProject.ext.hilt_compiler
+    testImplementation rootProject.ext.junit
+    testImplementation rootProject.ext.mockk
+    testImplementation rootProject.ext.coroutines_test
 }
