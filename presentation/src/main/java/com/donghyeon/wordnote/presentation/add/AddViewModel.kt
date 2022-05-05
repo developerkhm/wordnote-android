@@ -3,7 +3,8 @@ package com.donghyeon.wordnote.presentation.add
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.donghyeon.wordnote.domain.usecase.ItemUseCase
+import com.donghyeon.wordnote.domain.usecase.AddItemUseCase
+import com.donghyeon.wordnote.domain.usecase.GetNoteUseCase
 import com.donghyeon.wordnote.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -11,7 +12,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AddViewModel @Inject constructor(
-    private val itemUseCase: ItemUseCase
+    private val getNoteUseCase: GetNoteUseCase,
+    private val addItemUseCase: AddItemUseCase
 ) : BaseViewModel() {
 
     val addModel = MutableLiveData(AddModel())
@@ -21,7 +23,7 @@ class AddViewModel @Inject constructor(
 
     fun getNote() {
         viewModelScope.launch {
-            itemUseCase.getNote().collect {
+            getNoteUseCase().collect {
                 addModel.value = AddModel(noteId = it.id, note = it.note)
             }
         }
@@ -31,7 +33,7 @@ class AddViewModel @Inject constructor(
         viewModelScope.launch {
             addModel.value?.let { addModel ->
                 if (addModel.word != "" && addModel.description != "") {
-                    itemUseCase.addItem(
+                    addItemUseCase(
                         addModel.noteId,
                         addModel.word,
                         addModel.description

@@ -5,7 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.DiffUtil
 import com.donghyeon.wordnote.domain.model.ItemData
-import com.donghyeon.wordnote.domain.usecase.ItemUseCase
+import com.donghyeon.wordnote.domain.usecase.GetItemListUseCase
+import com.donghyeon.wordnote.domain.usecase.RemoveItemUseCase
 import com.donghyeon.wordnote.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -13,7 +14,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ReadViewModel @Inject constructor(
-    private val itemUseCase: ItemUseCase
+    private val getItemListUseCase: GetItemListUseCase,
+    private val removeItemUseCase: RemoveItemUseCase
 ) : BaseViewModel() {
 
     private val _itemDataList = MutableLiveData<List<ItemData>>()
@@ -31,7 +33,7 @@ class ReadViewModel @Inject constructor(
 
     fun getItemAll() {
         viewModelScope.launch {
-            itemUseCase.getItemList().collect {
+            getItemListUseCase().collect {
                 _itemDataList.value = it
             }
         }
@@ -41,7 +43,7 @@ class ReadViewModel @Inject constructor(
 
     fun removeItem(itemData: ItemData) {
         viewModelScope.launch {
-            itemUseCase.removeItem(itemData).collect {
+            removeItemUseCase(itemData).collect {
                 _itemDataList.value = it
             }
         }
