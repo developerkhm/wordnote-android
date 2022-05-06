@@ -17,6 +17,6 @@ class ReadFragment : BaseFragment<FragmentReadBinding, ReadViewModel>(
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
         binding.rvList.adapter = ReadAdapter(viewModel)
-        viewModel.getItemAll()
+        viewModel.getItemList()
     }
 }

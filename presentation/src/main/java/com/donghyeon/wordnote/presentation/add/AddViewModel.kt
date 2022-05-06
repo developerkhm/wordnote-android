@@ -45,4 +45,8 @@ class AddViewModel @Inject constructor(
             }
         }
     }
+
+    fun selectedNote() {
+        _addState.value = AddState.SelectedNote
+    }
 }

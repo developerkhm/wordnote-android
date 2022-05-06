@@ -18,6 +18,7 @@ dependencies {
     implementation rootProject.ext.fragment_ktx
     implementation rootProject.ext.lifecycle_viewmodel_ktx
     implementation rootProject.ext.lifecycle_livedata_ktx
+    implementation rootProject.ext.timber
     implementation rootProject.ext.hilt_android
     kapt rootProject.ext.hilt_compiler
 }

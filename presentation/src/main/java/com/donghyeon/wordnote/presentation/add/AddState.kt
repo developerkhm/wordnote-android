@@ -6,4 +6,5 @@ sealed class AddState {
         val message: String
     ) : AddState()
     object AddComplete : AddState()
+    object SelectedNote : AddState()
 }

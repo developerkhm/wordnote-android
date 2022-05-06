@@ -12,6 +12,7 @@ dependencies {
     implementation project(":domain")
     implementation rootProject.ext.core_ktx
     implementation rootProject.ext.appcompat
+    implementation rootProject.ext.timber
     implementation rootProject.ext.datastore_preferences
     implementation rootProject.ext.room_runtime
     kapt rootProject.ext.room_compiler

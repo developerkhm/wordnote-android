@@ -19,5 +19,4 @@ android {
     dataBinding {
         enabled = true
     }
-
 }

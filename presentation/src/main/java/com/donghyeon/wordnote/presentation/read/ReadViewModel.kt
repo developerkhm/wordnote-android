@@ -23,15 +23,15 @@ class ReadViewModel @Inject constructor(
 
     val diffUtil = object : DiffUtil.ItemCallback<ItemData>() {
         override fun areItemsTheSame(oldItem: ItemData, newItem: ItemData): Boolean {
-            return oldItem.word == newItem.word
+            return oldItem.id == newItem.id
         }
         override fun areContentsTheSame(oldItem: ItemData, newItem: ItemData): Boolean {
-            return oldItem.word == newItem.word &&
-                oldItem.description == newItem.description
+            return oldItem.id == newItem.id &&
+                oldItem.word == newItem.word
         }
     }
 
-    fun getItemAll() {
+    fun getItemList() {
         viewModelScope.launch {
             getItemListUseCase().collect {
                 _itemDataList.value = it

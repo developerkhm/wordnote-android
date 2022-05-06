@@ -1,5 +1,5 @@
 <resources>
-    <string name="title">단어장</string>
+    <string name="note">단어장</string>
     <string name="setting">설정</string>
     <string name="service">서비스 명</string>
     <string name="word">단어</string>
