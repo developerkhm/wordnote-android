@@ -8,13 +8,13 @@
 
         <variable
             name="vm"
-            type="com.donghyeon.wordnote.presentation.add.note.NoteViewModel"/>
+            type="com.donghyeon.wordnote.presentation.add.note.NoteSelectViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:context=".add.note.NoteFragment">
+        tools:context=".add.note.NoteSelectFragment">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_add"
@@ -35,6 +35,6 @@
             app:layout_constraintTop_toBottomOf="@+id/bt_add"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:listitem="@layout/recycler_note"/>
+            tools:listitem="@layout/recycler_note_select"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -3,6 +3,7 @@ package com.donghyeon.wordnote.presentation.add
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.donghyeon.wordnote.domain.model.NoteData
 import com.donghyeon.wordnote.domain.usecase.AddItemUseCase
 import com.donghyeon.wordnote.domain.usecase.GetNoteUseCase
 import com.donghyeon.wordnote.presentation.base.BaseViewModel
@@ -48,5 +49,13 @@ class AddViewModel @Inject constructor(
 
     fun selectedNote() {
         _addState.value = AddState.SelectedNote
+    }
+
+    fun setNote(noteData: NoteData) {
+        addModel.value?.let {
+            it.noteId = noteData.id
+            it.note = noteData.note
+            addModel.value = it
+        }
     }
 }

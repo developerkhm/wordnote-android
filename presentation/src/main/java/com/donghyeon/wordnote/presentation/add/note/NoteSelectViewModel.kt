@@ -12,15 +12,15 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class NoteViewModel @Inject constructor(
+class NoteSelectViewModel @Inject constructor(
     private val getNoteListUseCase: GetNoteListUseCase
 ) : BaseViewModel() {
 
     private val _noteDataList = MutableLiveData<List<NoteData>>()
     val noteDataList: LiveData<List<NoteData>> = _noteDataList
 
-    private val _noteState = MutableLiveData<NoteState>()
-    val noteState: LiveData<NoteState> = _noteState
+    private val _noteSelectState = MutableLiveData<NoteSelectState>()
+    val noteSelectState: LiveData<NoteSelectState> = _noteSelectState
 
     val diffUtil = object : DiffUtil.ItemCallback<NoteData>() {
         override fun areItemsTheSame(oldItem: NoteData, newItem: NoteData): Boolean {
@@ -39,9 +39,11 @@ class NoteViewModel @Inject constructor(
         }
     }
 
-    fun selectedNote(noteData: NoteData) {}
+    fun selectedNote(noteData: NoteData) {
+        _noteSelectState.value = NoteSelectState.SelectedNote(noteData)
+    }
 
     fun editNote() {
-        _noteState.value = NoteState.EditNote
+        _noteSelectState.value = NoteSelectState.EditNote
     }
 }

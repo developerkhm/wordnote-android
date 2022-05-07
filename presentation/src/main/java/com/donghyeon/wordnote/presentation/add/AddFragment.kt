@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.donghyeon.wordnote.presentation.R
-import com.donghyeon.wordnote.presentation.add.note.NoteFragment
+import com.donghyeon.wordnote.presentation.add.note.NoteSelectFragment
 import com.donghyeon.wordnote.presentation.base.BaseFragment
 import com.donghyeon.wordnote.presentation.databinding.FragmentAddBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,8 +27,14 @@ class AddFragment : BaseFragment<FragmentAddBinding, AddViewModel>(
                     binding.etDescription.setText("")
                 }
                 is AddState.SelectedNote -> {
-                    val noteFragment = NoteFragment()
-                    noteFragment.show(requireActivity().supportFragmentManager, noteFragment.tag)
+                    NoteSelectFragment().let { fragment ->
+                        fragment.showNoteFragment(
+                            requireActivity().supportFragmentManager,
+                            fragment.tag
+                        ) { noteData ->
+                            viewModel.setNote(noteData)
+                        }
+                    }
                 }
             }
         }

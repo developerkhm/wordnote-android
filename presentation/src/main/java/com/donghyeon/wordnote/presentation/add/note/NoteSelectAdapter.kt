@@ -5,19 +5,19 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.donghyeon.wordnote.domain.model.NoteData
 import com.donghyeon.wordnote.presentation.base.BaseAdapter
-import com.donghyeon.wordnote.presentation.databinding.RecyclerNoteBinding
+import com.donghyeon.wordnote.presentation.databinding.RecyclerNoteSelectBinding
 
-class NoteAdapter(
-    private val viewModel: NoteViewModel,
+class NoteSelectAdapter(
+    private val viewModel: NoteSelectViewModel,
 ) : BaseAdapter<NoteData>(viewModel.diffUtil) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): RecyclerView.ViewHolder {
-        binding = RecyclerNoteBinding
+        binding = RecyclerNoteSelectBinding
             .inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(binding as RecyclerNoteBinding)
+        return ViewHolder(binding as RecyclerNoteSelectBinding)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -27,7 +27,7 @@ class NoteAdapter(
     }
 
     inner class ViewHolder(
-        private val binding: RecyclerNoteBinding
+        private val binding: RecyclerNoteSelectBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(noteData: NoteData) {
