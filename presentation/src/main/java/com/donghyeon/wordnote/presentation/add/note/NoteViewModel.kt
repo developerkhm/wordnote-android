@@ -19,6 +19,9 @@ class NoteViewModel @Inject constructor(
     private val _noteDataList = MutableLiveData<List<NoteData>>()
     val noteDataList: LiveData<List<NoteData>> = _noteDataList
 
+    private val _noteState = MutableLiveData<NoteState>()
+    val noteState: LiveData<NoteState> = _noteState
+
     val diffUtil = object : DiffUtil.ItemCallback<NoteData>() {
         override fun areItemsTheSame(oldItem: NoteData, newItem: NoteData): Boolean {
             return oldItem.id == newItem.id
@@ -38,4 +41,9 @@ class NoteViewModel @Inject constructor(
     }
 
     fun selectedNote(noteData: NoteData) {}
+
+    fun editNote() {
+        _noteState.value = NoteState.EditNote
+        _noteState.value = NoteState.None
+    }
 }

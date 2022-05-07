@@ -5,6 +5,7 @@
     <string name="word">단어</string>
     <string name="description">설명</string>
     <string name="add">추가</string>
+    <string name="note_list_edit">단어장 목록 편집</string>
     <string name="read">읽기</string>
     <string name="quiz">퀴즈</string>
     <string name="done">확인</string>
