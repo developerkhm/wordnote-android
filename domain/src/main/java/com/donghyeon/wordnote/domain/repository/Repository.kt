@@ -9,6 +9,8 @@ interface Repository {
 
     suspend fun getNoteList(): List<NoteData>
 
+    suspend fun removeNote(noteData: NoteData)
+
     suspend fun setSelectedNoteId(noteId: Long): Long
 
     suspend fun getSelectedNoteId(): Long?

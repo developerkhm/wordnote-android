@@ -17,5 +17,16 @@ class NoteEditActivity : BaseActivity<ActivityNoteEditBinding, NoteEditViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
+        binding.rvNote.adapter = NoteEditAdapter(viewModel)
+        viewModel.noteEditState.observe(this) {
+            when (it) {
+                is NoteEditState.ShowMessage -> showToast(it.message)
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getNoteList()
     }
 }

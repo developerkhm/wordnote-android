@@ -7,6 +7,7 @@ import com.donghyeon.wordnote.domain.usecase.GetItemListUseCase
 import com.donghyeon.wordnote.domain.usecase.GetNoteListUseCase
 import com.donghyeon.wordnote.domain.usecase.GetNoteUseCase
 import com.donghyeon.wordnote.domain.usecase.RemoveItemUseCase
+import com.donghyeon.wordnote.domain.usecase.RemoveNoteUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,6 +31,11 @@ object UseCaseModule {
     fun providesGetNoteListUseCase(
         repository: Repository
     ) = GetNoteListUseCase(repository)
+
+    @Provides
+    fun providesRemoveNoteUseCase(
+        repository: Repository
+    ) = RemoveNoteUseCase(repository)
 
     @Provides
     fun providesAddItemUseCase(

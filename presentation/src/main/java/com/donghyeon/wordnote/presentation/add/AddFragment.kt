@@ -22,10 +22,6 @@ class AddFragment : BaseFragment<FragmentAddBinding, AddViewModel>(
         viewModel.addState.observe(viewLifecycleOwner) {
             when (it) {
                 is AddState.ShowMessage -> showToast(it.message)
-                is AddState.AddComplete -> {
-                    binding.etWord.setText("")
-                    binding.etDescription.setText("")
-                }
                 is AddState.SelectedNote -> {
                     NoteSelectFragment().let { fragment ->
                         fragment.showNoteFragment(

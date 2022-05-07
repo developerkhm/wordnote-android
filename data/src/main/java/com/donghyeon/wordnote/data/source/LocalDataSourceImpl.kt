@@ -20,6 +20,11 @@ class LocalDataSourceImpl @Inject constructor(
     override suspend fun getNoteList() =
         roomService.dao().getNoteList()
 
+    override suspend fun removeNote(note: Note) {
+        roomService.dao().removeNote(note)
+        roomService.dao().removeItem(note.id)
+    }
+
     override suspend fun setSelectedNoteId(noteId: Long) =
         dataStoreService.setSelectedNoteId(noteId)
 

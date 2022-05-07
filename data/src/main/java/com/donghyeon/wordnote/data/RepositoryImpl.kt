@@ -20,6 +20,9 @@ class RepositoryImpl @Inject constructor(
             NoteData(it.id, it.note)
         }
 
+    override suspend fun removeNote(noteData: NoteData) =
+        localDataSource.removeNote(Note(noteData.id, noteData.note))
+
     override suspend fun setSelectedNoteId(noteId: Long) =
         localDataSource.setSelectedNoteId(noteId)
 

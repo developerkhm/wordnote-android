@@ -37,10 +37,14 @@ class AddViewModel @Inject constructor(
                     addModel.noteId,
                     addModel.word,
                     addModel.description
-                ).collect {
-                    when (it) {
-                        is String -> _addState.value = AddState.ShowMessage(it)
-                        is Boolean -> _addState.value = AddState.AddComplete
+                ).collect { result ->
+                    when (result) {
+                        is String -> _addState.value = AddState.ShowMessage(result)
+                        is Boolean -> this@AddViewModel.addModel.value?.let {
+                            it.word = ""
+                            it.description = ""
+                            this@AddViewModel.addModel.value = it
+                        }
                     }
                 }
             }

@@ -9,6 +9,8 @@ interface LocalDataSource {
 
     suspend fun getNoteList(): List<Note>
 
+    suspend fun removeNote(note: Note)
+
     suspend fun setSelectedNoteId(noteId: Long): Long
 
     suspend fun getSelectedNoteId(): Long?

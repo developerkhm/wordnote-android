@@ -15,6 +15,9 @@ interface Dao {
     @Query("SELECT * FROM Note")
     fun getNoteList(): List<Note>
 
+    @Delete
+    fun removeNote(note: Note)
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addItem(item: Item)
 
@@ -23,4 +26,7 @@ interface Dao {
 
     @Delete
     fun removeItem(item: Item)
+
+    @Query("DELETE FROM Item WHERE noteId = :noteId")
+    fun removeItem(noteId: Long)
 }
