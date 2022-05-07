@@ -2,17 +2,19 @@ package com.donghyeon.wordnote.presentation.add
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import com.donghyeon.wordnote.presentation.R
 import com.donghyeon.wordnote.presentation.add.note.NoteFragment
 import com.donghyeon.wordnote.presentation.base.BaseFragment
 import com.donghyeon.wordnote.presentation.databinding.FragmentAddBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AddFragment : BaseFragment<FragmentAddBinding, AddViewModel>(
     R.layout.fragment_add
 ) {
 
-    override val viewModel by activityViewModels<AddViewModel>()
+    override val viewModel by viewModels<AddViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

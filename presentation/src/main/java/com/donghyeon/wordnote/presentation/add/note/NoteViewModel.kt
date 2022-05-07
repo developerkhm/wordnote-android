@@ -27,8 +27,7 @@ class NoteViewModel @Inject constructor(
             return oldItem.id == newItem.id
         }
         override fun areContentsTheSame(oldItem: NoteData, newItem: NoteData): Boolean {
-            return oldItem.id == newItem.id &&
-                oldItem.note == newItem.note
+            return oldItem.note == newItem.note
         }
     }
 
@@ -44,6 +43,5 @@ class NoteViewModel @Inject constructor(
 
     fun editNote() {
         _noteState.value = NoteState.EditNote
-        _noteState.value = NoteState.None
     }
 }

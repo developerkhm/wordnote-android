@@ -22,16 +22,12 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
-        val addFragment: AddFragment by lazy { AddFragment() }
-        val readFragment: ReadFragment by lazy { ReadFragment() }
-        val quizFragment: QuizFragment by lazy { QuizFragment() }
-        val settingFragment: SettingFragment by lazy { SettingFragment() }
         binding.bnvMenu.setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.m_add -> { setFragment(addFragment) }
-                R.id.m_read -> { setFragment(readFragment) }
-                R.id.m_quiz -> { setFragment(quizFragment) }
-                R.id.m_setting -> { setFragment(settingFragment) }
+                R.id.m_add -> { setFragment(AddFragment()) }
+                R.id.m_read -> { setFragment(ReadFragment()) }
+                R.id.m_quiz -> { setFragment(QuizFragment()) }
+                R.id.m_setting -> { setFragment(SettingFragment()) }
             }
             return@setOnItemSelectedListener true
         }
