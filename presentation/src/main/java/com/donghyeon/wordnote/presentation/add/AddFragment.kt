@@ -34,6 +34,10 @@ class AddFragment : BaseFragment<FragmentAddBinding, AddViewModel>(
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
         viewModel.getNote()
     }
 }

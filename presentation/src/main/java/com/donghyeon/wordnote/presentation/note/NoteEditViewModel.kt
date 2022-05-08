@@ -64,7 +64,13 @@ class NoteEditViewModel @Inject constructor(
     fun removeNote(noteData: NoteData) {
         viewModelScope.launch {
             removeNoteUseCase(noteData).collect {
-                _noteDataList.value = it
+                when (it) {
+                    is String ->
+                        _noteEditState.value = NoteEditState.ShowMessage(it)
+                    is List<*> -> _noteDataList.value = it.map { noteData ->
+                        noteData as NoteData
+                    }
+                }
             }
         }
     }

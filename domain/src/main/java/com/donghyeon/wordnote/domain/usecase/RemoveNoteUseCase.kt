@@ -11,7 +11,16 @@ class RemoveNoteUseCase(
 ) {
 
     operator fun invoke(noteData: NoteData) = flow {
-        repository.removeNote(noteData)
-        emit(repository.getNoteList())
+        if (repository.getNoteList().count() <= 1) {
+            emit("단어장이 이거 하나 밖에 없습니다")
+        } else {
+            repository.removeNote(noteData)
+            repository.getNoteList().let {
+                if (noteData.id == repository.getSelectedNoteId()) {
+                    repository.setSelectedNoteId(it.first().id)
+                }
+                emit(it)
+            }
+        }
     }.flowOn(IO)
 }
