@@ -1,6 +1,7 @@
 package com.donghyeon.wordnote.presentation.note
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.activity.viewModels
 import com.donghyeon.wordnote.presentation.R
 import com.donghyeon.wordnote.presentation.base.BaseActivity
@@ -23,10 +24,17 @@ class NoteEditActivity : BaseActivity<ActivityNoteEditBinding, NoteEditViewModel
                 is NoteEditState.ShowMessage -> showToast(it.message)
             }
         }
+        setSupportActionBar(binding.tbTitle)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onResume() {
         super.onResume()
         viewModel.getNoteList()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) finish()
+        return super.onOptionsItemSelected(item)
     }
 }

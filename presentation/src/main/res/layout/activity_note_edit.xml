@@ -16,6 +16,16 @@
         android:layout_height="match_parent"
         tools:context=".note.NoteEditActivity">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_title"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:title="@string/note_list_edit"
+            app:layout_constraintTop_toTopOf="parent"/>
+
         <EditText
             android:id="@+id/et_note"
             android:layout_width="0dp"
@@ -27,7 +37,7 @@
             app:layout_constraintEnd_toStartOf="@+id/bt_add"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/tb_title"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_add"
