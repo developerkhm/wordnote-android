@@ -8,13 +8,13 @@
 
         <variable
             name="vm"
-            type="com.donghyeon.wordnote.presentation.add.AddViewModel"/>
+            type="com.donghyeon.wordnote.presentation.main.add.AddViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".add.AddFragment">
+        tools:context=".main.add.AddFragment">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_note"
@@ -49,7 +49,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:context=".add.AddActivity">
+                tools:context=".main.add.AddActivity">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_word"

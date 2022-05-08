@@ -1,4 +1,4 @@
-package com.donghyeon.wordnote.presentation.read
+package com.donghyeon.wordnote.presentation.main.read
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

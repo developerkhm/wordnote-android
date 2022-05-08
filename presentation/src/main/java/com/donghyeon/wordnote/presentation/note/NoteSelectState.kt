@@ -1,4 +1,4 @@
-package com.donghyeon.wordnote.presentation.add.note
+package com.donghyeon.wordnote.presentation.note
 
 import com.donghyeon.wordnote.domain.model.NoteData
 

@@ -8,13 +8,13 @@
 
         <variable
             name="vm"
-            type="com.donghyeon.wordnote.presentation.setting.SettingViewModel"/>
+            type="com.donghyeon.wordnote.presentation.main.setting.SettingViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".setting.SettingFragment">
+        tools:context=".main.setting.SettingFragment">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_version"

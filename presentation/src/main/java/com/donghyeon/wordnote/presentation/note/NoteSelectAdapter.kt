@@ -1,4 +1,4 @@
-package com.donghyeon.wordnote.presentation.add.note
+package com.donghyeon.wordnote.presentation.note
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

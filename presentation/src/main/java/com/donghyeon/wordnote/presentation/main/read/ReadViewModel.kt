@@ -1,4 +1,4 @@
-package com.donghyeon.wordnote.presentation.read
+package com.donghyeon.wordnote.presentation.main.read
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

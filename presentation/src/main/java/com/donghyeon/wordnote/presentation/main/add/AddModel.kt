@@ -1,4 +1,4 @@
-package com.donghyeon.wordnote.presentation.add
+package com.donghyeon.wordnote.presentation.main.add
 
 data class AddModel(
 

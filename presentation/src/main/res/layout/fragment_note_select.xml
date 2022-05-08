@@ -8,13 +8,13 @@
 
         <variable
             name="vm"
-            type="com.donghyeon.wordnote.presentation.add.note.NoteSelectViewModel"/>
+            type="com.donghyeon.wordnote.presentation.note.NoteSelectViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:context=".add.note.NoteSelectFragment">
+        tools:context=".note.NoteSelectFragment">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_add"

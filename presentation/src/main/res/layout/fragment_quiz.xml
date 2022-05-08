@@ -8,13 +8,13 @@
 
         <variable
             name="vm"
-            type="com.donghyeon.wordnote.presentation.quiz.QuizViewModel"/>
+            type="com.donghyeon.wordnote.presentation.main.quiz.QuizViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".read.ReadFragment">
+        tools:context=".main.read.ReadFragment">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"

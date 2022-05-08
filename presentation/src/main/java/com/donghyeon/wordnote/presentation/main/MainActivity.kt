@@ -4,12 +4,12 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import com.donghyeon.wordnote.presentation.R
-import com.donghyeon.wordnote.presentation.add.AddFragment
 import com.donghyeon.wordnote.presentation.base.BaseActivity
 import com.donghyeon.wordnote.presentation.databinding.ActivityMainBinding
-import com.donghyeon.wordnote.presentation.quiz.QuizFragment
-import com.donghyeon.wordnote.presentation.read.ReadFragment
-import com.donghyeon.wordnote.presentation.setting.SettingFragment
+import com.donghyeon.wordnote.presentation.main.add.AddFragment
+import com.donghyeon.wordnote.presentation.main.quiz.QuizFragment
+import com.donghyeon.wordnote.presentation.main.read.ReadFragment
+import com.donghyeon.wordnote.presentation.main.setting.SettingFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

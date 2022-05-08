@@ -1,12 +1,12 @@
-package com.donghyeon.wordnote.presentation.add
+package com.donghyeon.wordnote.presentation.main.add
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.donghyeon.wordnote.presentation.R
-import com.donghyeon.wordnote.presentation.add.note.NoteSelectFragment
 import com.donghyeon.wordnote.presentation.base.BaseFragment
 import com.donghyeon.wordnote.presentation.databinding.FragmentAddBinding
+import com.donghyeon.wordnote.presentation.note.NoteSelectFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

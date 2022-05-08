@@ -1,4 +1,4 @@
-package com.donghyeon.wordnote.presentation.setting
+package com.donghyeon.wordnote.presentation.main.setting
 
 import android.os.Bundle
 import android.view.View

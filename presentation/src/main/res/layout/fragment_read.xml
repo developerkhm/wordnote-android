@@ -8,13 +8,13 @@
 
         <variable
             name="vm"
-            type="com.donghyeon.wordnote.presentation.read.ReadViewModel"/>
+            type="com.donghyeon.wordnote.presentation.main.read.ReadViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".read.ReadFragment">
+        tools:context=".main.read.ReadFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_item"

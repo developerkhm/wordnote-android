@@ -12,7 +12,7 @@
 
         <variable
             name="vm"
-            type="com.donghyeon.wordnote.presentation.read.ReadViewModel"/>
+            type="com.donghyeon.wordnote.presentation.main.read.ReadViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

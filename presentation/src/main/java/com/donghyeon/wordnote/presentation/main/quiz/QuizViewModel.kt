@@ -1,4 +1,4 @@
-package com.donghyeon.wordnote.presentation.quiz
+package com.donghyeon.wordnote.presentation.main.quiz
 
 import com.donghyeon.wordnote.presentation.base.BaseViewModel
 

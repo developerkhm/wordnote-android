@@ -1,4 +1,4 @@
-package com.donghyeon.wordnote.presentation.add.note
+package com.donghyeon.wordnote.presentation.note
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
