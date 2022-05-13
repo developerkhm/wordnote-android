@@ -6,10 +6,10 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
-apply from: rootProject.file("android.gradle")
+apply from: rootProject.file('android.gradle')
 
 dependencies {
-    implementation project(":domain")
+    implementation project(':domain')
     implementation rootProject.ext.core_ktx
     implementation rootProject.ext.appcompat
     implementation rootProject.ext.timber

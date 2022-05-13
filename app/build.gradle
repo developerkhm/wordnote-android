@@ -1,23 +1,22 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-parcelize'
     id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
     id 'org.jlleitschuh.gradle.ktlint'
+    id 'dagger.hilt.android.plugin'
 }
 
-apply from: rootProject.file("android.gradle")
+apply from: rootProject.file('android.gradle')
 
 android {
 
     defaultConfig {
-        applicationId "com.donghyeon.wordnote"
+        applicationId 'com.donghyeon.wordnote'
         versionCode 1
-        versionName "0.0.1"
+        versionName '0.0.1'
     }
 
-    def keystorePropertiesFile = rootProject.file("keystore.properties")
+    def keystorePropertiesFile = rootProject.file('keystore.properties')
     def keystoreProperties = new Properties()
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
@@ -41,9 +40,9 @@ android {
 }
 
 dependencies {
-    implementation project(":data")
-    implementation project(":domain")
-    implementation project(":presentation")
+    implementation project(':data')
+    implementation project(':domain')
+    implementation project(':presentation')
     implementation rootProject.ext.timber
     implementation rootProject.ext.material
     implementation rootProject.ext.datastore_preferences
