@@ -1,5 +1,6 @@
 package com.donghyeon.wordnote.data
 
+import com.donghyeon.wordnote.data.mapper.Mapper
 import com.donghyeon.wordnote.data.service.room.Item
 import com.donghyeon.wordnote.data.service.room.Note
 import com.donghyeon.wordnote.data.source.LocalDataSource
@@ -16,9 +17,7 @@ class RepositoryImpl @Inject constructor(
         localDataSource.addNote(Note(note))
 
     override suspend fun getNoteList() =
-        localDataSource.getNoteList().map {
-            NoteData(it.id, it.note)
-        }
+        Mapper.noteList(localDataSource.getNoteList())
 
     override suspend fun removeNote(noteData: NoteData) =
         localDataSource.removeNote(Note(noteData.id, noteData.note))
@@ -33,9 +32,7 @@ class RepositoryImpl @Inject constructor(
         localDataSource.addItem(Item(noteId, word, description))
 
     override suspend fun getItemList(noteId: Long) =
-        localDataSource.getItemList(noteId).map {
-            ItemData(it.id, it.noteId, it.word, it.description)
-        }
+        Mapper.itemList(localDataSource.getItemList(noteId))
 
     override suspend fun removeItem(itemData: ItemData) =
         localDataSource.removeItem(
