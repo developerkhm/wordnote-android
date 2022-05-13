@@ -22,7 +22,7 @@ buildscript {
         room_compiler =
                 "androidx.room:room-compiler:2.4.2"
         coroutines_core =
-                'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0'
+                'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1-native-mt'
         coroutines_android =
                 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
         retrofit =
@@ -32,17 +32,17 @@ buildscript {
         logging_interceptor =
                 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.5'
         material =
-                'com.google.android.material:material:1.5.0'
+                'com.google.android.material:material:1.6.0'
         hilt_android =
-                'com.google.dagger:hilt-android:2.41'
+                'com.google.dagger:hilt-android:2.42'
         hilt_compiler =
-                'com.google.dagger:hilt-compiler:2.41'
+                'com.google.dagger:hilt-compiler:2.42'
         timber =
                 'com.jakewharton.timber:timber:5.0.1'
         junit =
                 'junit:junit:4.13.2'
         mockk =
-                'io.mockk:mockk:1.10.5'
+                'io.mockk:mockk:1.12.4'
         coroutines_test =
                 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1'
     }
