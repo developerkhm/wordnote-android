@@ -4,8 +4,9 @@ import com.donghyeon.wordnote.domain.repository.Repository
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import javax.inject.Inject
 
-class AddNoteUseCase(
+class AddNoteUseCase @Inject constructor(
     private val repository: Repository
 ) {
 

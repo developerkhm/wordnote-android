@@ -5,8 +5,9 @@ import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import java.util.regex.Pattern
+import javax.inject.Inject
 
-class AddItemUseCase(
+class AddItemUseCase @Inject constructor(
     private val repository: Repository
 ) {
 

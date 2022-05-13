@@ -4,13 +4,14 @@ import com.donghyeon.wordnote.domain.repository.Repository
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import javax.inject.Inject
 
-class GetNoteUseCase(
+class GetNoteUseCase @Inject constructor(
     private val repository: Repository
 ) {
 
     operator fun invoke() = flow {
-        if (repository.getNoteList().count() == 0)
+        if (repository.getNoteList().isEmpty())
             repository.addNote("나의 단어장")
         val noteList = repository.getNoteList()
         repository.getSelectedNoteId()?.let { id ->
