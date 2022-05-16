@@ -19,11 +19,6 @@ class NoteEditActivity : BaseActivity<ActivityNoteEditBinding, NoteEditViewModel
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
         binding.rvNote.adapter = NoteEditAdapter(viewModel)
-        viewModel.noteEditState.observe(this) {
-            when (it) {
-                is NoteEditState.ShowMessage -> showToast(it.message)
-            }
-        }
         setSupportActionBar(binding.tbTitle)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }

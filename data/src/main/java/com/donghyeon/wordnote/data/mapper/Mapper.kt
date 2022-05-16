@@ -1,6 +1,5 @@
 package com.donghyeon.wordnote.data.mapper
 
-import android.provider.ContactsContract
 import com.donghyeon.wordnote.data.service.room.Item
 import com.donghyeon.wordnote.data.service.room.Note
 import com.donghyeon.wordnote.domain.model.ItemData

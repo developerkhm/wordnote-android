@@ -28,9 +28,12 @@ abstract class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel>(
         binding = setContentView<VDB>(this, layoutRes).apply {
             lifecycleOwner = this@BaseActivity
         }
+        viewModel.message.observe(this) {
+            showToast(it)
+        }
     }
 
-    fun showToast(
+    private fun showToast(
         message: String
     ) {
         toast?.cancel()
@@ -39,7 +42,7 @@ abstract class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel>(
         toast?.show()
     }
 
-    fun showAlert1B(
+    private fun showAlert1B(
         message: String,
         done: () -> Unit
     ) {
@@ -54,7 +57,7 @@ abstract class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel>(
         alert?.show()
     }
 
-    fun showAlert2B(
+    private fun showAlert2B(
         message: String,
         done: () -> Unit
     ) {

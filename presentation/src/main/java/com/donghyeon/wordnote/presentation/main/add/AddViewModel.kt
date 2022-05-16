@@ -39,7 +39,7 @@ class AddViewModel @Inject constructor(
                     addModel.description
                 ).collect { result ->
                     when (result) {
-                        is String -> _addState.value = AddState.ShowMessage(result)
+                        is String -> _message.value = result
                         is Boolean -> this@AddViewModel.addModel.value?.let {
                             it.word = ""
                             it.description = ""

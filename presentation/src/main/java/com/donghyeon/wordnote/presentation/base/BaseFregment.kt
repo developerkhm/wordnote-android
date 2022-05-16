@@ -29,10 +29,13 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel>(
         binding = inflate<VDB>(inflater, layoutRes, container, false).apply {
             lifecycleOwner = this@BaseFragment
         }
+        viewModel.message.observe(viewLifecycleOwner) {
+            showToast(it)
+        }
         return binding.root
     }
 
-    fun showToast(
+    private fun showToast(
         message: String
     ) {
         toast?.cancel()
