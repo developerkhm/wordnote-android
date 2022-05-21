@@ -8,6 +8,7 @@ import com.donghyeon.wordnote.domain.model.NoteData
 import com.donghyeon.wordnote.domain.usecase.AddNoteUseCase
 import com.donghyeon.wordnote.domain.usecase.GetNoteListUseCase
 import com.donghyeon.wordnote.domain.usecase.RemoveNoteUseCase
+import com.donghyeon.wordnote.presentation.base.BaseState
 import com.donghyeon.wordnote.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -49,7 +50,7 @@ class NoteEditViewModel @Inject constructor(
         viewModelScope.launch {
             addNoteUseCase(note.value).collect {
                 when (it) {
-                    is String -> _message.value = it
+                    is String -> _baseState.value = BaseState.ShowMessage(it)
                     is Boolean -> {
                         note.value = ""
                         getNoteList()
@@ -63,7 +64,7 @@ class NoteEditViewModel @Inject constructor(
         viewModelScope.launch {
             removeNoteUseCase(noteData).collect {
                 when (it) {
-                    is String -> _message.value = it
+                    is String -> _baseState.value = BaseState.ShowMessage(it)
                     is List<*> -> _noteDataList.value = it.map { noteData ->
                         noteData as NoteData
                     }

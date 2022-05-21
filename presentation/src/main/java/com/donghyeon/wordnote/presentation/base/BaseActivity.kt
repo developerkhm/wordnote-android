@@ -2,6 +2,7 @@ package com.donghyeon.wordnote.presentation.base
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
@@ -28,8 +29,13 @@ abstract class BaseActivity<VDB : ViewDataBinding, VM : BaseViewModel>(
         binding = setContentView<VDB>(this, layoutRes).apply {
             lifecycleOwner = this@BaseActivity
         }
-        viewModel.message.observe(this) {
-            showToast(it)
+        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        viewModel.baseState.observe(this) {
+            when (it) {
+                is BaseState.ShowMessage -> showToast(it.message)
+                is BaseState.KeyboardHide ->
+                    imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+            }
         }
     }
 

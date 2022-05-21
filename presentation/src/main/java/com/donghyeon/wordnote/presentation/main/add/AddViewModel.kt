@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.donghyeon.wordnote.domain.model.NoteData
 import com.donghyeon.wordnote.domain.usecase.AddItemUseCase
 import com.donghyeon.wordnote.domain.usecase.GetNoteUseCase
+import com.donghyeon.wordnote.presentation.base.BaseState
 import com.donghyeon.wordnote.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -39,7 +40,7 @@ class AddViewModel @Inject constructor(
                     addModel.description
                 ).collect { result ->
                     when (result) {
-                        is String -> _message.value = result
+                        is String -> _baseState.value = BaseState.ShowMessage(result)
                         is Boolean -> this@AddViewModel.addModel.value?.let {
                             it.word = ""
                             it.description = ""
