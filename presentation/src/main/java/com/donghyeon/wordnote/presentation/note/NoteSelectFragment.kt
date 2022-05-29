@@ -15,7 +15,9 @@ import com.donghyeon.wordnote.presentation.databinding.FragmentNoteSelectBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class NoteSelectFragment : DialogFragment() {
+class NoteSelectFragment(
+    private val editEnable: Boolean
+) : DialogFragment() {
 
     private lateinit var binding: FragmentNoteSelectBinding
     private val viewModel by viewModels<NoteSelectViewModel>()
@@ -35,6 +37,7 @@ class NoteSelectFragment : DialogFragment() {
             lifecycleOwner = this@NoteSelectFragment
             vm = viewModel
             rvNote.adapter = NoteSelectAdapter(viewModel)
+            btAdd.visibility = if (editEnable) View.VISIBLE else View.GONE
         }
         viewModel.noteSelectState.observe(this) {
             when (it) {

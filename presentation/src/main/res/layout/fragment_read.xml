@@ -18,9 +18,10 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_note"
-            android:text="@{vm.noteData.note}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@{vm.noteData.note}"
+            android:onClick="@{() -> vm.selectedNote()}"
             app:layout_constraintTop_toTopOf="parent"/>
 
         <androidx.recyclerview.widget.RecyclerView

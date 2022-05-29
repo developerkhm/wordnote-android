@@ -27,6 +27,9 @@ class ReadViewModel @Inject constructor(
     private val _itemDataList = MutableLiveData<List<ItemData>>()
     val itemDataList: LiveData<List<ItemData>> = _itemDataList
 
+    private val _readState = MutableLiveData<ReadState>()
+    val readState: LiveData<ReadState> = _readState
+
     val diffUtil = object : DiffUtil.ItemCallback<ItemData>() {
         override fun areItemsTheSame(oldItem: ItemData, newItem: ItemData): Boolean {
             return oldItem.id == newItem.id
@@ -43,6 +46,10 @@ class ReadViewModel @Inject constructor(
                 _noteData.value = it
             }
         }
+    }
+
+    fun selectedNote() {
+        _readState.value = ReadState.SelectedNote
     }
 
     fun getItemList() {

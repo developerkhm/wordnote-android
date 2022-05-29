@@ -22,7 +22,7 @@ class AddFragment : BaseFragment<FragmentAddBinding, AddViewModel>(
         viewModel.addState.observe(viewLifecycleOwner) {
             when (it) {
                 is AddState.SelectedNote -> {
-                    NoteSelectFragment().let { fragment ->
+                    NoteSelectFragment(true).let { fragment ->
                         fragment.showNoteFragment(
                             requireActivity().supportFragmentManager,
                             fragment.tag

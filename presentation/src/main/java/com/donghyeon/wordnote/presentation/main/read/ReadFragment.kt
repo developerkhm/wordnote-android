@@ -6,6 +6,7 @@ import androidx.fragment.app.viewModels
 import com.donghyeon.wordnote.presentation.R
 import com.donghyeon.wordnote.presentation.base.BaseFragment
 import com.donghyeon.wordnote.presentation.databinding.FragmentReadBinding
+import com.donghyeon.wordnote.presentation.note.NoteSelectFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,6 +20,24 @@ class ReadFragment : BaseFragment<FragmentReadBinding, ReadViewModel>(
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
         binding.rvItem.adapter = ReadAdapter(viewModel)
+        viewModel.readState.observe(viewLifecycleOwner) {
+            when (it) {
+                ReadState.SelectedNote -> {
+                    NoteSelectFragment(false).let { fragment ->
+                        fragment.showNoteFragment(
+                            requireActivity().supportFragmentManager,
+                            fragment.tag
+                        ) {
+                            setView()
+                        }
+                    }
+                }
+            }
+        }
+        setView()
+    }
+
+    private fun setView() {
         viewModel.getSelectedNote()
         viewModel.getItemList()
     }
