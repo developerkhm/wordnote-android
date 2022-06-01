@@ -16,10 +16,14 @@
         android:layout_height="match_parent"
         tools:context=".main.read.ReadFragment">
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_quiz"
+            bindItemList="@{vm.quizDataList}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/quiz"/>
+            android:padding="10dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            tools:listitem="@layout/recycler_quiz"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

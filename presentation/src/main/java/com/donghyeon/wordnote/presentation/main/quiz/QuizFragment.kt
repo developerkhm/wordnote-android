@@ -18,5 +18,6 @@ class QuizFragment : BaseFragment<FragmentQuizBinding, QuizViewModel>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.vm = viewModel
+        binding.rvQuiz.adapter = QuizAdapter(viewModel)
     }
 }
