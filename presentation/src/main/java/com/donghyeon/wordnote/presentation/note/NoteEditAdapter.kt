@@ -39,7 +39,7 @@ class NoteEditAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(noteData: NoteData) {
-            binding.apply {
+            with(binding) {
                 this.noteData = noteData
                 vm = viewModel
             }

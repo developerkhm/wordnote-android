@@ -39,7 +39,7 @@ class QuizAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(quizData: QuizData) {
-            binding.apply {
+            with(binding) {
                 this.quizData = quizData
             }
         }

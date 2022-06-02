@@ -17,9 +17,11 @@ class NoteEditActivity : BaseActivity<ActivityNoteEditBinding, NoteEditViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding.vm = viewModel
-        binding.rvNote.adapter = NoteEditAdapter(viewModel)
-        setSupportActionBar(binding.tbTitle)
+        with(binding) {
+            vm = viewModel
+            rvNote.adapter = NoteEditAdapter(viewModel)
+            setSupportActionBar(tbTitle)
+        }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 

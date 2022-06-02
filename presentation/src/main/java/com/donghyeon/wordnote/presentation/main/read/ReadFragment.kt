@@ -18,8 +18,10 @@ class ReadFragment : BaseFragment<FragmentReadBinding, ReadViewModel>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.vm = viewModel
-        binding.rvItem.adapter = ReadAdapter(viewModel)
+        with(binding) {
+            vm = viewModel
+            rvItem.adapter = ReadAdapter(viewModel)
+        }
         viewModel.readState.observe(viewLifecycleOwner) {
             when (it) {
                 ReadState.SelectedNote -> {

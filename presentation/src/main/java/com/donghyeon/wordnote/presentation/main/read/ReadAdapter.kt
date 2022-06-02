@@ -39,7 +39,7 @@ class ReadAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(itemData: ItemData) {
-            binding.apply {
+            with(binding) {
                 this.itemData = itemData
                 vm = viewModel
             }

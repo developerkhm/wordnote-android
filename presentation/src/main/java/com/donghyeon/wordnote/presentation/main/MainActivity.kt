@@ -21,17 +21,19 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding.vm = viewModel
-        binding.bnvMenu.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.m_add -> { setFragment(AddFragment()) }
-                R.id.m_read -> { setFragment(ReadFragment()) }
-                R.id.m_quiz -> { setFragment(QuizFragment()) }
-                R.id.m_setting -> { setFragment(SettingFragment()) }
+        with(binding) {
+            vm = viewModel
+            bnvMenu.setOnItemSelectedListener {
+                when (it.itemId) {
+                    R.id.m_add -> { setFragment(AddFragment()) }
+                    R.id.m_read -> { setFragment(ReadFragment()) }
+                    R.id.m_quiz -> { setFragment(QuizFragment()) }
+                    R.id.m_setting -> { setFragment(SettingFragment()) }
+                }
+                return@setOnItemSelectedListener true
             }
-            return@setOnItemSelectedListener true
+            bnvMenu.selectedItemId = R.id.m_read
         }
-        binding.bnvMenu.selectedItemId = R.id.m_read
     }
 
     private fun setFragment(fragment: Fragment) {

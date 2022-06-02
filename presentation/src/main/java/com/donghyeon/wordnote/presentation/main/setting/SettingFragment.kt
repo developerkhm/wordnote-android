@@ -17,10 +17,12 @@ class SettingFragment : BaseFragment<FragmentSettingBinding, SettingViewModel>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.vm = viewModel
-        context?.let {
-            val version = "v" + it.packageManager.getPackageInfo(it.packageName, 0).versionName
-            binding.tvVersion.text = version
+        with(binding) {
+            binding.vm = viewModel
+            context?.let {
+                val version = "v" + it.packageManager.getPackageInfo(it.packageName, 0).versionName
+                tvVersion.text = version
+            }
         }
     }
 }
