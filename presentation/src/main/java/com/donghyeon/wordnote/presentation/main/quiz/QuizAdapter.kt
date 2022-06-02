@@ -2,6 +2,7 @@ package com.donghyeon.wordnote.presentation.main.quiz
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.donghyeon.wordnote.domain.model.QuizData
 import com.donghyeon.wordnote.presentation.base.BaseAdapter
@@ -9,7 +10,14 @@ import com.donghyeon.wordnote.presentation.databinding.RecyclerQuizBinding
 
 class QuizAdapter(
     private val viewModel: QuizViewModel,
-) : BaseAdapter<QuizData>(viewModel.diffUtil) {
+) : BaseAdapter<QuizData>(
+    object : DiffUtil.ItemCallback<QuizData>() {
+        override fun areItemsTheSame(oldItem: QuizData, newItem: QuizData) =
+            oldItem.title == newItem.title
+        override fun areContentsTheSame(oldItem: QuizData, newItem: QuizData) =
+            oldItem.title == newItem.title
+    }
+) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,

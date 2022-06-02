@@ -3,7 +3,6 @@ package com.donghyeon.wordnote.presentation.note
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import androidx.recyclerview.widget.DiffUtil
 import com.donghyeon.wordnote.domain.model.NoteData
 import com.donghyeon.wordnote.domain.usecase.AddNoteUseCase
 import com.donghyeon.wordnote.domain.usecase.GetNoteListUseCase
@@ -28,15 +27,6 @@ class NoteEditViewModel @Inject constructor(
     val noteEditState: LiveData<NoteEditState> = _noteEditState
 
     val note = MutableLiveData<String>()
-
-    val diffUtil = object : DiffUtil.ItemCallback<NoteData>() {
-        override fun areItemsTheSame(oldItem: NoteData, newItem: NoteData): Boolean {
-            return oldItem.id == newItem.id
-        }
-        override fun areContentsTheSame(oldItem: NoteData, newItem: NoteData): Boolean {
-            return oldItem.note == newItem.note
-        }
-    }
 
     fun getNoteList() {
         viewModelScope.launch {

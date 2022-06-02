@@ -3,7 +3,6 @@ package com.donghyeon.wordnote.presentation.main.read
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import androidx.recyclerview.widget.DiffUtil
 import com.donghyeon.wordnote.domain.model.ItemData
 import com.donghyeon.wordnote.domain.model.NoteData
 import com.donghyeon.wordnote.domain.usecase.GetItemListUseCase
@@ -29,16 +28,6 @@ class ReadViewModel @Inject constructor(
 
     private val _readState = MutableLiveData<ReadState>()
     val readState: LiveData<ReadState> = _readState
-
-    val diffUtil = object : DiffUtil.ItemCallback<ItemData>() {
-        override fun areItemsTheSame(oldItem: ItemData, newItem: ItemData): Boolean {
-            return oldItem.id == newItem.id
-        }
-        override fun areContentsTheSame(oldItem: ItemData, newItem: ItemData): Boolean {
-            return oldItem.id == newItem.id &&
-                oldItem.word == newItem.word
-        }
-    }
 
     fun getSelectedNote() {
         viewModelScope.launch {

@@ -2,6 +2,7 @@ package com.donghyeon.wordnote.presentation.main.read
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.donghyeon.wordnote.domain.model.ItemData
 import com.donghyeon.wordnote.presentation.base.BaseAdapter
@@ -9,7 +10,14 @@ import com.donghyeon.wordnote.presentation.databinding.RecyclerItemBinding
 
 class ReadAdapter(
     private val viewModel: ReadViewModel,
-) : BaseAdapter<ItemData>(viewModel.diffUtil) {
+) : BaseAdapter<ItemData>(
+    object : DiffUtil.ItemCallback<ItemData>() {
+        override fun areItemsTheSame(oldItem: ItemData, newItem: ItemData) =
+            oldItem.id == newItem.id
+        override fun areContentsTheSame(oldItem: ItemData, newItem: ItemData) =
+            oldItem.id == newItem.id && oldItem.word == newItem.word
+    }
+) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
