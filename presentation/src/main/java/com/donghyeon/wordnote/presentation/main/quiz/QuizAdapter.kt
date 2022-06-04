@@ -9,7 +9,7 @@ import com.donghyeon.wordnote.presentation.base.BaseAdapter
 import com.donghyeon.wordnote.presentation.databinding.RecyclerQuizBinding
 
 class QuizAdapter(
-    private val viewModel: QuizViewModel,
+    private val viewModel: QuizViewModel
 ) : BaseAdapter<QuizData>(
     object : DiffUtil.ItemCallback<QuizData>() {
         override fun areItemsTheSame(oldItem: QuizData, newItem: QuizData) =

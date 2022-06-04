@@ -6,5 +6,5 @@ data class AddModel(
     var itemId: Long = 0,
     var note: String = "",
     var word: String = "",
-    var description: String = "",
+    var description: String = ""
 )

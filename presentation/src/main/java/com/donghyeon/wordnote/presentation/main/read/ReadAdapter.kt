@@ -9,7 +9,7 @@ import com.donghyeon.wordnote.presentation.base.BaseAdapter
 import com.donghyeon.wordnote.presentation.databinding.RecyclerItemBinding
 
 class ReadAdapter(
-    private val viewModel: ReadViewModel,
+    private val viewModel: ReadViewModel
 ) : BaseAdapter<ItemData>(
     object : DiffUtil.ItemCallback<ItemData>() {
         override fun areItemsTheSame(oldItem: ItemData, newItem: ItemData) =

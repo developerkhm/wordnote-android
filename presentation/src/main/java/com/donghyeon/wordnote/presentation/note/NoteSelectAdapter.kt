@@ -9,7 +9,7 @@ import com.donghyeon.wordnote.presentation.base.BaseAdapter
 import com.donghyeon.wordnote.presentation.databinding.RecyclerNoteSelectBinding
 
 class NoteSelectAdapter(
-    private val viewModel: NoteSelectViewModel,
+    private val viewModel: NoteSelectViewModel
 ) : BaseAdapter<NoteData>(
     object : DiffUtil.ItemCallback<NoteData>() {
         override fun areItemsTheSame(oldItem: NoteData, newItem: NoteData) =
