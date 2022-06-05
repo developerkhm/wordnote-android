@@ -53,4 +53,5 @@ dependencies {
     testImplementation rootProject.ext.junit
     testImplementation rootProject.ext.mockk
     testImplementation rootProject.ext.coroutines_test
+    testImplementation rootProject.ext.core_testing
 }

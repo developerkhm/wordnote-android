@@ -45,6 +45,8 @@ buildscript {
                 'io.mockk:mockk:1.12.4'
         coroutines_test =
                 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.2'
+        core_testing =
+                'androidx.arch.core:core-testing:2.1.0'
     }
 
     dependencies {
