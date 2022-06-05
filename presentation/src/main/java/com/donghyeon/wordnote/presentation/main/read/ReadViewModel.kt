@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.donghyeon.wordnote.domain.model.ItemData
 import com.donghyeon.wordnote.domain.model.NoteData
 import com.donghyeon.wordnote.domain.usecase.GetItemListUseCase
-import com.donghyeon.wordnote.domain.usecase.GetSelectedNoteUseCase
+import com.donghyeon.wordnote.domain.usecase.GetNoteUseCase
 import com.donghyeon.wordnote.domain.usecase.RemoveItemUseCase
 import com.donghyeon.wordnote.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ReadViewModel @Inject constructor(
-    private val getSelectedNoteUseCase: GetSelectedNoteUseCase,
+    private val getNoteUseCase: GetNoteUseCase,
     private val getItemListUseCase: GetItemListUseCase,
     private val removeItemUseCase: RemoveItemUseCase
 ) : BaseViewModel() {
@@ -31,7 +31,7 @@ class ReadViewModel @Inject constructor(
 
     fun getSelectedNote() {
         viewModelScope.launch {
-            getSelectedNoteUseCase().collect {
+            getNoteUseCase().collect {
                 _noteData.value = it
             }
         }
