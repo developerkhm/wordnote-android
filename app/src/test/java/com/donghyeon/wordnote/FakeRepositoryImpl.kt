@@ -6,9 +6,7 @@ import com.donghyeon.wordnote.domain.repository.Repository
 
 class FakeRepositoryImpl : Repository {
 
-    override suspend fun addNote(note: String) {
-        TODO("Not yet implemented")
-    }
+    override suspend fun addNote(note: String) = Unit
 
     override suspend fun getNoteList(): List<NoteData> {
         return listOf(
@@ -17,9 +15,7 @@ class FakeRepositoryImpl : Repository {
         )
     }
 
-    override suspend fun removeNote(noteData: NoteData) {
-        TODO("Not yet implemented")
-    }
+    override suspend fun removeNote(noteData: NoteData) = Unit
 
     override suspend fun setSelectedNoteId(noteId: Long): Long {
         TODO("Not yet implemented")
@@ -27,15 +23,15 @@ class FakeRepositoryImpl : Repository {
 
     override suspend fun getSelectedNoteId(): Long = 1
 
-    override suspend fun addItem(noteId: Long, word: String, description: String) {
-        TODO("Not yet implemented")
-    }
+    override suspend fun addItem(
+        noteId: Long,
+        word: String,
+        description: String
+    ) = Unit
 
     override suspend fun getItemList(noteId: Long): List<ItemData> {
         TODO("Not yet implemented")
     }
 
-    override suspend fun removeItem(itemData: ItemData) {
-        TODO("Not yet implemented")
-    }
+    override suspend fun removeItem(itemData: ItemData) = Unit
 }
