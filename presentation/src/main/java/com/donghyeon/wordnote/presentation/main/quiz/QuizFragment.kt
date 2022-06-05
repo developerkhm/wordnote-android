@@ -6,6 +6,8 @@ import androidx.fragment.app.viewModels
 import com.donghyeon.wordnote.presentation.R
 import com.donghyeon.wordnote.presentation.base.BaseFragment
 import com.donghyeon.wordnote.presentation.databinding.FragmentQuizBinding
+import com.donghyeon.wordnote.presentation.utils.ItemDecoration
+import com.donghyeon.wordnote.presentation.utils.dp
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,6 +22,7 @@ class QuizFragment : BaseFragment<FragmentQuizBinding, QuizViewModel>(
         with(binding) {
             vm = viewModel
             rvQuiz.adapter = QuizAdapter(viewModel)
+            rvQuiz.addItemDecoration(ItemDecoration(15.dp))
         }
     }
 }

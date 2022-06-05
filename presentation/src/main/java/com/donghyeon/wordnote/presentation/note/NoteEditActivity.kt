@@ -6,6 +6,8 @@ import androidx.activity.viewModels
 import com.donghyeon.wordnote.presentation.R
 import com.donghyeon.wordnote.presentation.base.BaseActivity
 import com.donghyeon.wordnote.presentation.databinding.ActivityNoteEditBinding
+import com.donghyeon.wordnote.presentation.utils.ItemDecoration
+import com.donghyeon.wordnote.presentation.utils.dp
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,6 +22,7 @@ class NoteEditActivity : BaseActivity<ActivityNoteEditBinding, NoteEditViewModel
         with(binding) {
             vm = viewModel
             rvNote.adapter = NoteEditAdapter(viewModel)
+            rvNote.addItemDecoration(ItemDecoration(15.dp))
             setSupportActionBar(tbTitle)
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

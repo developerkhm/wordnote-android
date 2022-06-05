@@ -21,7 +21,6 @@
             bindItemList="@{vm.quizDataList}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="2"
             tools:listitem="@layout/recycler_quiz"/>

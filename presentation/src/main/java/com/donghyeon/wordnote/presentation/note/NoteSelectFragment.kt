@@ -12,6 +12,8 @@ import androidx.fragment.app.viewModels
 import com.donghyeon.wordnote.domain.model.NoteData
 import com.donghyeon.wordnote.presentation.R
 import com.donghyeon.wordnote.presentation.databinding.FragmentNoteSelectBinding
+import com.donghyeon.wordnote.presentation.utils.ItemDecoration
+import com.donghyeon.wordnote.presentation.utils.dp
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -37,6 +39,7 @@ class NoteSelectFragment(
             lifecycleOwner = this@NoteSelectFragment
             vm = viewModel
             rvNote.adapter = NoteSelectAdapter(viewModel)
+            rvNote.addItemDecoration(ItemDecoration(15.dp))
             btAdd.visibility = if (editEnable) View.VISIBLE else View.GONE
         }
         viewModel.noteSelectState.observe(this) {
