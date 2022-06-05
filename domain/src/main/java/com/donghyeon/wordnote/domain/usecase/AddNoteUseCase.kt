@@ -1,12 +1,13 @@
 package com.donghyeon.wordnote.domain.usecase
 
+import com.donghyeon.wordnote.domain.dispatcher.Dispatcher
 import com.donghyeon.wordnote.domain.repository.Repository
-import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class AddNoteUseCase @Inject constructor(
+    private val dispatcher: Dispatcher,
     private val repository: Repository
 ) {
 
@@ -16,5 +17,5 @@ class AddNoteUseCase @Inject constructor(
             repository.addNote(note)
             emit(true)
         }
-    }.flowOn(IO)
+    }.flowOn(dispatcher.io)
 }
