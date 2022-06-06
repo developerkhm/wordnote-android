@@ -14,14 +14,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/dr_border">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_select"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:text="@{quizData.title}"
-            android:background="@drawable/dr_border"
+            android:background="@null"
             app:layout_constraintDimensionRatio="w, 1:1"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
