@@ -30,7 +30,7 @@ class ReadViewModel @Inject constructor(
     val readState: LiveData<ReadState> = _readState
 
     fun getSelectedNote() {
-        viewModelScope.launch {
+        viewModelScope.launch(ceh) {
             getNoteUseCase().collect {
                 _noteData.value = it
             }
@@ -42,7 +42,7 @@ class ReadViewModel @Inject constructor(
     }
 
     fun getItemList() {
-        viewModelScope.launch {
+        viewModelScope.launch(ceh) {
             getItemListUseCase().collect {
                 _itemDataList.value = it
             }
@@ -52,7 +52,7 @@ class ReadViewModel @Inject constructor(
     fun selectedItem(itemData: ItemData) {}
 
     fun removeItem(itemData: ItemData) {
-        viewModelScope.launch {
+        viewModelScope.launch(ceh) {
             removeItemUseCase(itemData).collect {
                 _itemDataList.value = it
             }

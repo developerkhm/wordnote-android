@@ -24,7 +24,7 @@ class NoteSelectViewModel @Inject constructor(
     val noteSelectState: LiveData<NoteSelectState> = _noteSelectState
 
     fun getNoteList() {
-        viewModelScope.launch {
+        viewModelScope.launch(ceh) {
             getNoteListUseCase().collect {
                 _noteDataList.value = it
             }
@@ -32,7 +32,7 @@ class NoteSelectViewModel @Inject constructor(
     }
 
     fun selectedNote(noteData: NoteData) {
-        viewModelScope.launch {
+        viewModelScope.launch(ceh) {
             selectedNoteUseCase(noteData).collect {
                 _noteSelectState.value = NoteSelectState.SelectedNote(noteData)
             }

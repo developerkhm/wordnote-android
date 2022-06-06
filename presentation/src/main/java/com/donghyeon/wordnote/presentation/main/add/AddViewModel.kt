@@ -24,7 +24,7 @@ class AddViewModel @Inject constructor(
     val addState: LiveData<AddState> = _addState
 
     fun getNote() {
-        viewModelScope.launch {
+        viewModelScope.launch(ceh) {
             getNoteUseCase().collect {
                 addModel.value = AddModel(noteId = it.id, note = it.note)
             }
@@ -32,7 +32,7 @@ class AddViewModel @Inject constructor(
     }
 
     fun addItem() {
-        viewModelScope.launch {
+        viewModelScope.launch(ceh) {
             addModel.value?.let { addModel ->
                 addItemUseCase(
                     addModel.noteId,

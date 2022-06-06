@@ -29,7 +29,7 @@ class NoteEditViewModel @Inject constructor(
     val note = MutableLiveData<String>()
 
     fun getNoteList() {
-        viewModelScope.launch {
+        viewModelScope.launch(ceh) {
             getNoteListUseCase().collect {
                 _noteDataList.value = it
             }
@@ -37,7 +37,7 @@ class NoteEditViewModel @Inject constructor(
     }
 
     fun addNote() {
-        viewModelScope.launch {
+        viewModelScope.launch(ceh) {
             addNoteUseCase(note.value).collect {
                 when (it) {
                     is String -> _baseState.value = BaseState.ShowMessage(it)
@@ -51,7 +51,7 @@ class NoteEditViewModel @Inject constructor(
     }
 
     fun removeNote(noteData: NoteData) {
-        viewModelScope.launch {
+        viewModelScope.launch(ceh) {
             removeNoteUseCase(noteData).collect {
                 when (it) {
                     is String -> _baseState.value = BaseState.ShowMessage(it)
