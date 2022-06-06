@@ -7,7 +7,7 @@ import com.donghyeon.wordnote.presentation.R
 import com.donghyeon.wordnote.presentation.base.BaseFragment
 import com.donghyeon.wordnote.presentation.databinding.FragmentReadBinding
 import com.donghyeon.wordnote.presentation.note.NoteSelectFragment
-import com.donghyeon.wordnote.presentation.utils.ItemDecoration
+import com.donghyeon.wordnote.presentation.utils.LinearDecoration
 import com.donghyeon.wordnote.presentation.utils.dp
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,7 +23,7 @@ class ReadFragment : BaseFragment<FragmentReadBinding, ReadViewModel>(
         with(binding) {
             vm = viewModel
             rvItem.adapter = ReadAdapter(viewModel)
-            rvItem.addItemDecoration(ItemDecoration(15.dp))
+            rvItem.addItemDecoration(LinearDecoration(15.dp))
         }
         viewModel.readState.observe(viewLifecycleOwner) {
             when (it) {
