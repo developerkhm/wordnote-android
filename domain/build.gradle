@@ -9,8 +9,8 @@ plugins {
 apply from: rootProject.file('android.gradle')
 
 dependencies {
-    implementation rootProject.ext.coroutines_core
-    implementation rootProject.ext.timber
-    implementation rootProject.ext.hilt_android
-    kapt rootProject.ext.hilt_compiler
+    implementation Libs.coroutines_core
+    implementation Libs.timber
+    implementation Libs.hilt_android
+    kapt Libs.hilt_compiler
 }

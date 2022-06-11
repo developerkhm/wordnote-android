@@ -10,12 +10,12 @@ apply from: rootProject.file('android.gradle')
 
 dependencies {
     implementation project(':domain')
-    implementation rootProject.ext.core_ktx
-    implementation rootProject.ext.appcompat
-    implementation rootProject.ext.timber
-    implementation rootProject.ext.datastore_preferences
-    implementation rootProject.ext.room_runtime
-    kapt rootProject.ext.room_compiler
-    implementation rootProject.ext.hilt_android
-    kapt rootProject.ext.hilt_compiler
+    implementation Libs.core_ktx
+    implementation Libs.appcompat
+    implementation Libs.timber
+    implementation Libs.datastore_preferences
+    implementation Libs.room_runtime
+    kapt Libs.room_compiler
+    implementation Libs.hilt_android
+    kapt Libs.hilt_compiler
 }
