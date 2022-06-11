@@ -1,4 +1,4 @@
-package com.donghyeon.wordnote
+package com.donghyeon.wordnote.testutil
 
 import com.donghyeon.wordnote.domain.dispatcher.Dispatcher
 import kotlinx.coroutines.CoroutineDispatcher

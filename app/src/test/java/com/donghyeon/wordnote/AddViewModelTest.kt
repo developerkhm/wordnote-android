@@ -1,9 +1,9 @@
-package com.donghyeon.wordnote.viewmodel
+package com.donghyeon.wordnote
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.donghyeon.wordnote.FakeRepositoryImpl
-import com.donghyeon.wordnote.MainCoroutineRule
-import com.donghyeon.wordnote.TestDispatcherImpl
+import com.donghyeon.wordnote.fakes.FakeRepositoryImpl
+import com.donghyeon.wordnote.testutil.MainCoroutineRule
+import com.donghyeon.wordnote.testutil.TestDispatcherImpl
 import com.donghyeon.wordnote.domain.model.NoteData
 import com.donghyeon.wordnote.domain.usecase.AddItemUseCase
 import com.donghyeon.wordnote.domain.usecase.GetNoteUseCase

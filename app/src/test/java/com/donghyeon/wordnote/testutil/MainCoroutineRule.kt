@@ -1,4 +1,4 @@
-package com.donghyeon.wordnote
+package com.donghyeon.wordnote.testutil
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

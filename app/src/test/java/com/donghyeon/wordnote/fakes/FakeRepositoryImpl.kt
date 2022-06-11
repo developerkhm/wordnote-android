@@ -1,4 +1,4 @@
-package com.donghyeon.wordnote
+package com.donghyeon.wordnote.fakes
 
 import com.donghyeon.wordnote.domain.model.ItemData
 import com.donghyeon.wordnote.domain.model.NoteData
