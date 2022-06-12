@@ -2,7 +2,9 @@ package com.donghyeon.wordnote.domain.usecase
 
 import com.donghyeon.wordnote.domain.model.NoteData
 import com.donghyeon.wordnote.domain.repository.Repository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class SelectedNoteUseCase @Inject constructor(
@@ -12,5 +14,5 @@ class SelectedNoteUseCase @Inject constructor(
     operator fun invoke(noteData: NoteData) = flow {
         repository.setSelectedNoteId(noteData.id)
         emit(true)
-    }
+    }.flowOn(Dispatchers.IO)
 }
