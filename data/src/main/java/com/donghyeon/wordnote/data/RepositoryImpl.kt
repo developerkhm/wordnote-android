@@ -4,12 +4,14 @@ import com.donghyeon.wordnote.data.mapper.Mapper
 import com.donghyeon.wordnote.data.service.room.Item
 import com.donghyeon.wordnote.data.service.room.Note
 import com.donghyeon.wordnote.data.source.LocalDataSource
+import com.donghyeon.wordnote.domain.dispatcher.Dispatcher
 import com.donghyeon.wordnote.domain.model.ItemData
 import com.donghyeon.wordnote.domain.model.NoteData
 import com.donghyeon.wordnote.domain.repository.Repository
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(
+    private val dispatcher: Dispatcher,
     private val localDataSource: LocalDataSource
 ) : Repository {
 

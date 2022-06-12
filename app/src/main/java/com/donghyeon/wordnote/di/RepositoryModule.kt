@@ -12,6 +12,8 @@ import com.donghyeon.wordnote.data.service.datastore.DataStoreServiceImpl
 import com.donghyeon.wordnote.data.service.room.RoomService
 import com.donghyeon.wordnote.data.source.LocalDataSource
 import com.donghyeon.wordnote.data.source.LocalDataSourceImpl
+import com.donghyeon.wordnote.domain.dispatcher.Dispatcher
+import com.donghyeon.wordnote.domain.dispatcher.DispatcherImpl
 import com.donghyeon.wordnote.domain.repository.Repository
 import dagger.Module
 import dagger.Provides
@@ -25,6 +27,10 @@ object RepositoryModule {
 
     private val Context.dataStore: DataStore<Preferences>
         by preferencesDataStore("WordNote")
+
+    @Singleton
+    @Provides
+    fun providesDispatcher(): Dispatcher = DispatcherImpl()
 
     @Singleton
     @Provides

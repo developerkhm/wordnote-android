@@ -1,14 +1,11 @@
 package com.donghyeon.wordnote.domain.usecase
 
-import com.donghyeon.wordnote.domain.dispatcher.Dispatcher
 import com.donghyeon.wordnote.domain.model.NoteData
 import com.donghyeon.wordnote.domain.repository.Repository
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class RemoveNoteUseCase @Inject constructor(
-    private val dispatcher: Dispatcher,
     private val repository: Repository
 ) {
 
@@ -24,5 +21,5 @@ class RemoveNoteUseCase @Inject constructor(
                 emit(it)
             }
         }
-    }.flowOn(dispatcher.io)
+    }
 }

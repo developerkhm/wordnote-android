@@ -1,13 +1,10 @@
 package com.donghyeon.wordnote.domain.usecase
 
-import com.donghyeon.wordnote.domain.dispatcher.Dispatcher
 import com.donghyeon.wordnote.domain.repository.Repository
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class GetItemListUseCase @Inject constructor(
-    private val dispatcher: Dispatcher,
     private val repository: Repository
 ) {
 
@@ -17,5 +14,5 @@ class GetItemListUseCase @Inject constructor(
             return@flow
         }
         emit(listOf())
-    }.flowOn(dispatcher.io)
+    }
 }
