@@ -1,7 +1,7 @@
 package com.donghyeon.wordnote.data.source
 
-import com.donghyeon.wordnote.data.service.room.Item
-import com.donghyeon.wordnote.data.service.room.Note
+import com.donghyeon.wordnote.data.service.room.model.Item
+import com.donghyeon.wordnote.data.service.room.model.Note
 
 interface LocalDataSource {
 
@@ -11,9 +11,9 @@ interface LocalDataSource {
 
     suspend fun removeNote(note: Note)
 
-    suspend fun setSelectedNoteId(noteId: Long): Long
+    suspend fun setNoteId(noteId: Long)
 
-    suspend fun getSelectedNoteId(): Long?
+    suspend fun getNoteId(): Long
 
     suspend fun addItem(item: Item)
 

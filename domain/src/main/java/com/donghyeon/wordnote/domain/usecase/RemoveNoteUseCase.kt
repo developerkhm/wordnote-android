@@ -1,8 +1,9 @@
 package com.donghyeon.wordnote.domain.usecase
 
+import com.donghyeon.wordnote.domain.Repository
 import com.donghyeon.wordnote.domain.model.NoteData
-import com.donghyeon.wordnote.domain.repository.Repository
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
@@ -17,8 +18,8 @@ class RemoveNoteUseCase @Inject constructor(
         } else {
             repository.removeNote(noteData)
             repository.getNoteList().let {
-                if (noteData.id == repository.getSelectedNoteId()) {
-                    repository.setSelectedNoteId(it.first().id)
+                if (noteData.id == repository.getNoteId().first()) {
+                    repository.setNoteId(it.first().id).first()
                 }
                 emit(it)
             }

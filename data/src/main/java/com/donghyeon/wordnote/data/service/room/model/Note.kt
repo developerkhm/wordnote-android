@@ -1,4 +1,4 @@
-package com.donghyeon.wordnote.data.service.room
+package com.donghyeon.wordnote.data.service.room.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -13,14 +13,13 @@ class DataStoreServiceImpl @Inject constructor(
 ) : DataStoreService {
 
     companion object DataStoreKey {
-        val SELECTED_NOTE_ID = longPreferencesKey("SELECTED_NOTE_ID")
+        val NOTE_ID = longPreferencesKey("NOTE_ID")
     }
 
-    override suspend fun setSelectedNoteId(noteId: Long): Long {
-        dataStore.edit { it[SELECTED_NOTE_ID] = noteId }
-        return noteId
+    override suspend fun setNoteId(noteId: Long) {
+        dataStore.edit { it[NOTE_ID] = noteId }
     }
 
-    override suspend fun getSelectedNoteId() =
-        dataStore.data.map { it[SELECTED_NOTE_ID] }.first()
+    override suspend fun getNoteId() =
+        dataStore.data.map { it[NOTE_ID] }.first() ?: 0
 }

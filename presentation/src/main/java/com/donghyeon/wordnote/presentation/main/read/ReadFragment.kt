@@ -27,7 +27,7 @@ class ReadFragment : BaseFragment<FragmentReadBinding, ReadViewModel>(
         }
         viewModel.readState.observe(viewLifecycleOwner) {
             when (it) {
-                ReadState.SelectedNote -> {
+                ReadState.SetNote -> {
                     NoteSelectFragment(false).let { fragment ->
                         fragment.showNoteFragment(
                             requireActivity().supportFragmentManager,

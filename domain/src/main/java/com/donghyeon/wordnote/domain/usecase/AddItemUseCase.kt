@@ -1,6 +1,6 @@
 package com.donghyeon.wordnote.domain.usecase
 
-import com.donghyeon.wordnote.domain.repository.Repository
+import com.donghyeon.wordnote.domain.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn

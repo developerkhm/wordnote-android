@@ -1,7 +1,7 @@
-package com.donghyeon.wordnote.data.mapper
+package com.donghyeon.wordnote.data
 
-import com.donghyeon.wordnote.data.service.room.Item
-import com.donghyeon.wordnote.data.service.room.Note
+import com.donghyeon.wordnote.data.service.room.model.Item
+import com.donghyeon.wordnote.data.service.room.model.Note
 import com.donghyeon.wordnote.domain.model.ItemData
 import com.donghyeon.wordnote.domain.model.NoteData
 

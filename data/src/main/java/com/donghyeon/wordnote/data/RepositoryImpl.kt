@@ -1,13 +1,14 @@
 package com.donghyeon.wordnote.data
 
-import com.donghyeon.wordnote.data.mapper.Mapper
-import com.donghyeon.wordnote.data.service.room.Item
-import com.donghyeon.wordnote.data.service.room.Note
+import com.donghyeon.wordnote.data.service.room.model.Item
+import com.donghyeon.wordnote.data.service.room.model.Note
 import com.donghyeon.wordnote.data.source.LocalDataSource
+import com.donghyeon.wordnote.domain.Repository
 import com.donghyeon.wordnote.domain.dispatcher.Dispatcher
 import com.donghyeon.wordnote.domain.model.ItemData
 import com.donghyeon.wordnote.domain.model.NoteData
-import com.donghyeon.wordnote.domain.repository.Repository
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(
@@ -24,11 +25,13 @@ class RepositoryImpl @Inject constructor(
     override suspend fun removeNote(noteData: NoteData) =
         localDataSource.removeNote(Note(noteData.id, noteData.note))
 
-    override suspend fun setSelectedNoteId(noteId: Long) =
-        localDataSource.setSelectedNoteId(noteId)
+    override suspend fun setNoteId(noteId: Long) = flow {
+        emit(localDataSource.setNoteId(noteId))
+    }.flowOn(dispatcher.io)
 
-    override suspend fun getSelectedNoteId() =
-        localDataSource.getSelectedNoteId()
+    override suspend fun getNoteId() = flow {
+        emit(localDataSource.getNoteId())
+    }.flowOn(dispatcher.io)
 
     override suspend fun addItem(noteId: Long, word: String, description: String) =
         localDataSource.addItem(Item(noteId, word, description))

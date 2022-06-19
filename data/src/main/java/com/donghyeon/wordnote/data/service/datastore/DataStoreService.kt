@@ -2,7 +2,7 @@ package com.donghyeon.wordnote.data.service.datastore
 
 interface DataStoreService {
 
-    suspend fun setSelectedNoteId(noteId: Long): Long
+    suspend fun setNoteId(noteId: Long)
 
-    suspend fun getSelectedNoteId(): Long?
+    suspend fun getNoteId(): Long
 }

@@ -1,7 +1,8 @@
 package com.donghyeon.wordnote.domain.usecase
 
-import com.donghyeon.wordnote.domain.repository.Repository
+import com.donghyeon.wordnote.domain.Repository
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
@@ -11,10 +12,11 @@ class GetItemListUseCase @Inject constructor(
 ) {
 
     operator fun invoke() = flow {
-        repository.getSelectedNoteId()?.let {
-            emit(repository.getItemList(it))
+        val noteId = repository.getNoteId().first()
+        if (noteId == 0L) {
+            emit(listOf())
             return@flow
         }
-        emit(listOf())
+        emit(repository.getItemList(noteId))
     }.flowOn(Dispatchers.IO)
 }

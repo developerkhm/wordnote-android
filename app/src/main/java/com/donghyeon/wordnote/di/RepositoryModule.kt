@@ -12,9 +12,9 @@ import com.donghyeon.wordnote.data.service.datastore.DataStoreServiceImpl
 import com.donghyeon.wordnote.data.service.room.RoomService
 import com.donghyeon.wordnote.data.source.LocalDataSource
 import com.donghyeon.wordnote.data.source.LocalDataSourceImpl
+import com.donghyeon.wordnote.domain.Repository
 import com.donghyeon.wordnote.domain.dispatcher.Dispatcher
 import com.donghyeon.wordnote.domain.dispatcher.DispatcherImpl
-import com.donghyeon.wordnote.domain.repository.Repository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

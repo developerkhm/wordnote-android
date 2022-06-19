@@ -1,9 +1,9 @@
 package com.donghyeon.wordnote.data.source
 
 import com.donghyeon.wordnote.data.service.datastore.DataStoreService
-import com.donghyeon.wordnote.data.service.room.Item
-import com.donghyeon.wordnote.data.service.room.Note
 import com.donghyeon.wordnote.data.service.room.RoomService
+import com.donghyeon.wordnote.data.service.room.model.Item
+import com.donghyeon.wordnote.data.service.room.model.Note
 import javax.inject.Inject
 
 class LocalDataSourceImpl @Inject constructor(
@@ -25,11 +25,11 @@ class LocalDataSourceImpl @Inject constructor(
         roomService.dao().removeItem(note.id)
     }
 
-    override suspend fun setSelectedNoteId(noteId: Long) =
-        dataStoreService.setSelectedNoteId(noteId)
+    override suspend fun setNoteId(noteId: Long) =
+        dataStoreService.setNoteId(noteId)
 
-    override suspend fun getSelectedNoteId() =
-        dataStoreService.getSelectedNoteId()
+    override suspend fun getNoteId() =
+        dataStoreService.getNoteId()
 
     override suspend fun getItemList(noteId: Long) =
         roomService.dao().getItemList(noteId)

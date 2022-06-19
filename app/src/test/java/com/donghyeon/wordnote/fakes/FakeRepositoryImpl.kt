@@ -2,7 +2,7 @@ package com.donghyeon.wordnote.fakes
 
 import com.donghyeon.wordnote.domain.model.ItemData
 import com.donghyeon.wordnote.domain.model.NoteData
-import com.donghyeon.wordnote.domain.repository.Repository
+import com.donghyeon.wordnote.domain.Repository
 
 class FakeRepositoryImpl : Repository {
 

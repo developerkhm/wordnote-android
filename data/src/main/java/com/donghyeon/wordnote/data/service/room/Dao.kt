@@ -5,6 +5,8 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.donghyeon.wordnote.data.service.room.model.Item
+import com.donghyeon.wordnote.data.service.room.model.Note
 
 @Dao
 interface Dao {

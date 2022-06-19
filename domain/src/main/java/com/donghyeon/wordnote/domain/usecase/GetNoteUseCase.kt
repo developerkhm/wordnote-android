@@ -1,7 +1,8 @@
 package com.donghyeon.wordnote.domain.usecase
 
-import com.donghyeon.wordnote.domain.repository.Repository
+import com.donghyeon.wordnote.domain.Repository
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
@@ -14,14 +15,15 @@ class GetNoteUseCase @Inject constructor(
         if (repository.getNoteList().isEmpty())
             repository.addNote("나의 단어장")
         val noteList = repository.getNoteList()
-        repository.getSelectedNoteId()?.let { id ->
-            val note = noteList.find { it.id == id }
-            if (note != null) {
-                emit(note)
-                return@flow
-            }
+        var noteId = repository.getNoteId().first()
+        if (noteId == 0L) {
+            noteId = noteList.first().id
+            repository.setNoteId(noteId).first()
+            emit(noteList.first())
+            return@flow
         }
-        repository.setSelectedNoteId(noteList.first().id)
-        emit(noteList.first())
+        noteList.find { it.id == noteId }?.let {
+            emit(it)
+        }
     }.flowOn(Dispatchers.IO)
 }

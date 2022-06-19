@@ -38,7 +38,7 @@ class ReadViewModel @Inject constructor(
     }
 
     fun selectedNote() {
-        _readState.value = ReadState.SelectedNote
+        _readState.value = ReadState.SetNote
     }
 
     fun getItemList() {

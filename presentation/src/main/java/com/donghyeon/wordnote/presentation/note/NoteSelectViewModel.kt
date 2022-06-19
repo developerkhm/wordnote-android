@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.donghyeon.wordnote.domain.model.NoteData
 import com.donghyeon.wordnote.domain.usecase.GetNoteListUseCase
-import com.donghyeon.wordnote.domain.usecase.SelectedNoteUseCase
+import com.donghyeon.wordnote.domain.usecase.SetNoteUseCase
 import com.donghyeon.wordnote.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -14,7 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class NoteSelectViewModel @Inject constructor(
     private val getNoteListUseCase: GetNoteListUseCase,
-    private val selectedNoteUseCase: SelectedNoteUseCase
+    private val selectedNoteUseCase: SetNoteUseCase
 ) : BaseViewModel() {
 
     private val _noteDataList = MutableLiveData<List<NoteData>>()
