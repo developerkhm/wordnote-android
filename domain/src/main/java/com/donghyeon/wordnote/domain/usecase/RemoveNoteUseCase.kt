@@ -18,7 +18,7 @@ class RemoveNoteUseCase @Inject constructor(
         } else {
             repository.removeNote(noteData)
             repository.getNoteList().let {
-                if (noteData.id == repository.getNoteId().first()) {
+                if (noteData.id == repository.getNoteId()) {
                     repository.setNoteId(it.first().id).first()
                 }
                 emit(it)

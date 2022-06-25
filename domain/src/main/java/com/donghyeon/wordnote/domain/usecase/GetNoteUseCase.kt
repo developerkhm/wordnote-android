@@ -15,7 +15,7 @@ class GetNoteUseCase @Inject constructor(
         if (repository.getNoteList().isEmpty())
             repository.addNote("나의 단어장")
         val noteList = repository.getNoteList()
-        var noteId = repository.getNoteId().first()
+        var noteId = repository.getNoteId()
         if (noteId == 0L) {
             noteId = noteList.first().id
             repository.setNoteId(noteId).first()

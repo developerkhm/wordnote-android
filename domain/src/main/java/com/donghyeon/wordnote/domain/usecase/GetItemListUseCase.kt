@@ -2,7 +2,6 @@ package com.donghyeon.wordnote.domain.usecase
 
 import com.donghyeon.wordnote.domain.Repository
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
@@ -12,7 +11,7 @@ class GetItemListUseCase @Inject constructor(
 ) {
 
     operator fun invoke() = flow {
-        val noteId = repository.getNoteId().first()
+        val noteId = repository.getNoteId()
         if (noteId == 0L) {
             emit(listOf())
             return@flow

@@ -19,5 +19,6 @@ dependencies {
     implementation Libs.FRAGMENT_KTX
     implementation Libs.LIFECYCLE_VIEWMODEL_KTX
     implementation Libs.LIFECYCLE_LIVEDATA_KTX
+    implementation Libs.LIFECYCLE_RUNTIME_KTX
     implementation Libs.MATERIAL
 }

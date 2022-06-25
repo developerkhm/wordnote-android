@@ -24,6 +24,9 @@ object Libs {
         "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
     const val LIFECYCLE_LIVEDATA_KTX =
         "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
+    const val LIFECYCLE_RUNTIME_KTX =
+        "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
+
 
     // Design
     const val MATERIAL =

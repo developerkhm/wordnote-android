@@ -6,6 +6,8 @@ import kotlinx.coroutines.flow.Flow
 
 interface Repository {
 
+    suspend fun init()
+
     suspend fun addNote(note: String)
 
     suspend fun getNoteList(): List<NoteData>
@@ -14,7 +16,7 @@ interface Repository {
 
     suspend fun setNoteId(noteId: Long): Flow<Unit>
 
-    suspend fun getNoteId(): Flow<Long>
+    suspend fun getNoteId(): Long
 
     suspend fun addItem(noteId: Long, word: String, description: String)
 

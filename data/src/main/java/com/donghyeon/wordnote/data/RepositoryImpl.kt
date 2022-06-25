@@ -9,12 +9,21 @@ import com.donghyeon.wordnote.domain.model.ItemData
 import com.donghyeon.wordnote.domain.model.NoteData
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(
     private val dispatcher: Dispatcher,
     private val localDataSource: LocalDataSource
 ) : Repository {
+
+    override suspend fun init() {
+        if (localDataSource.getNoteList().isEmpty()) {
+            localDataSource.addNote(Note("나의 단어장"))
+            val id = localDataSource.getNoteList()[0].id
+            localDataSource.setNoteId(id)
+        }
+    }
 
     override suspend fun addNote(note: String) =
         localDataSource.addNote(Note(note))
@@ -29,9 +38,9 @@ class RepositoryImpl @Inject constructor(
         emit(localDataSource.setNoteId(noteId))
     }.flowOn(dispatcher.io)
 
-    override suspend fun getNoteId() = flow {
-        emit(localDataSource.getNoteId())
-    }.flowOn(dispatcher.io)
+    override suspend fun getNoteId() = withContext(dispatcher.io) {
+        localDataSource.getNoteId()
+    }
 
     override suspend fun addItem(noteId: Long, word: String, description: String) =
         localDataSource.addItem(Item(noteId, word, description))
