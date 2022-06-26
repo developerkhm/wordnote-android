@@ -7,8 +7,6 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.room.Room
 import com.donghyeon.wordnote.data.RepositoryImpl
-import com.donghyeon.wordnote.data.service.datastore.DataStoreService
-import com.donghyeon.wordnote.data.service.datastore.DataStoreServiceImpl
 import com.donghyeon.wordnote.data.service.room.RoomService
 import com.donghyeon.wordnote.data.source.LocalDataSource
 import com.donghyeon.wordnote.data.source.LocalDataSourceImpl
@@ -27,27 +25,18 @@ object RepositoryModule {
         by preferencesDataStore("DataStore")
 
     @Provides
-    fun provideDataStore(
+    fun provideDataStoreService(
         application: Application
     ) = application.applicationContext.dataStore
 
     @Provides
-    fun provideDataStoreService(
-        service: DataStoreServiceImpl
-    ): DataStoreService = service
-
-    @Provides
-    fun provideRoom(
+    fun provideRoomService(
         application: Application
-    ): RoomService {
-        return Room.databaseBuilder(
-            application,
-            RoomService::class.java,
-            "Room"
-        )
-            .fallbackToDestructiveMigration()
-            .build()
-    }
+    ): RoomService = Room.databaseBuilder(
+        application,
+        RoomService::class.java,
+        "Room"
+    ).fallbackToDestructiveMigration().build()
 
     @Provides
     fun providesLocalDataSource(
