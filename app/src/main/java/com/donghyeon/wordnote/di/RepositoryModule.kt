@@ -13,8 +13,6 @@ import com.donghyeon.wordnote.data.service.room.RoomService
 import com.donghyeon.wordnote.data.source.LocalDataSource
 import com.donghyeon.wordnote.data.source.LocalDataSourceImpl
 import com.donghyeon.wordnote.domain.Repository
-import com.donghyeon.wordnote.domain.dispatcher.Dispatcher
-import com.donghyeon.wordnote.domain.dispatcher.DispatcherImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,25 +24,18 @@ import javax.inject.Singleton
 object RepositoryModule {
 
     private val Context.dataStore: DataStore<Preferences>
-        by preferencesDataStore("WordNote")
+        by preferencesDataStore("DataStore")
 
-    @Singleton
-    @Provides
-    fun providesDispatcher(): Dispatcher = DispatcherImpl()
-
-    @Singleton
     @Provides
     fun provideDataStore(
         application: Application
     ) = application.applicationContext.dataStore
 
-    @Singleton
     @Provides
     fun provideDataStoreService(
         service: DataStoreServiceImpl
     ): DataStoreService = service
 
-    @Singleton
     @Provides
     fun provideRoom(
         application: Application
@@ -52,13 +43,12 @@ object RepositoryModule {
         return Room.databaseBuilder(
             application,
             RoomService::class.java,
-            "WordNote"
+            "Room"
         )
             .fallbackToDestructiveMigration()
             .build()
     }
 
-    @Singleton
     @Provides
     fun providesLocalDataSource(
         source: LocalDataSourceImpl
