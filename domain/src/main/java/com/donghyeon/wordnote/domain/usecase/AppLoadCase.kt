@@ -10,7 +10,8 @@ class AppLoadCase @Inject constructor(
     private val repository: Repository
 ) {
 
-    suspend operator fun invoke() = withContext(dispatcher.default) {
-        repository.init()
-    }
+    suspend operator fun invoke() =
+        withContext(dispatcher.io) {
+            repository.init()
+        }
 }

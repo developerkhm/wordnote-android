@@ -17,12 +17,12 @@ class RepositoryImpl @Inject constructor(
     private val localDataSource: LocalDataSource
 ) : Repository {
 
-    override suspend fun init() {
+    override suspend fun init(): Boolean {
         if (localDataSource.getNoteList().isEmpty()) {
             localDataSource.addNote(Note("나의 단어장"))
-            val id = localDataSource.getNoteList()[0].id
-            localDataSource.setNoteId(id)
+            localDataSource.setNoteId(localDataSource.getNoteList()[0].id)
         }
+        return true
     }
 
     override suspend fun addNote(note: String) =

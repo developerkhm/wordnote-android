@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface Repository {
 
-    suspend fun init()
+    suspend fun init(): Boolean
 
     suspend fun addNote(note: String)
 
