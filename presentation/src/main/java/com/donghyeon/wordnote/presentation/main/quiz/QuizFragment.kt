@@ -10,11 +10,14 @@ import com.donghyeon.wordnote.presentation.databinding.FragmentQuizBinding
 import com.donghyeon.wordnote.presentation.utils.GridDecoration
 import com.donghyeon.wordnote.presentation.utils.dp
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class QuizFragment : BaseFragment<FragmentQuizBinding, QuizViewModel>(
     R.layout.fragment_quiz
 ) {
+
+    @Inject lateinit var adapter: QuizAdapter
 
     override val viewModel by viewModels<QuizViewModel>()
 
@@ -23,7 +26,7 @@ class QuizFragment : BaseFragment<FragmentQuizBinding, QuizViewModel>(
         with(binding) {
             vm = viewModel
             val layoutManager = GridLayoutManager(context, 2)
-            rvQuiz.adapter = QuizAdapter(viewModel)
+            rvQuiz.adapter = adapter
             rvQuiz.layoutManager = layoutManager
             rvQuiz.addItemDecoration(GridDecoration(layoutManager, 15.dp))
         }

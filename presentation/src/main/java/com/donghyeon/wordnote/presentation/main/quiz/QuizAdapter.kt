@@ -7,10 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.donghyeon.wordnote.domain.model.QuizData
 import com.donghyeon.wordnote.presentation.base.BaseAdapter
 import com.donghyeon.wordnote.presentation.databinding.RecyclerQuizBinding
+import javax.inject.Inject
 
-class QuizAdapter(
-    private val viewModel: QuizViewModel
-) : BaseAdapter<QuizData>(
+class QuizAdapter @Inject constructor() : BaseAdapter<QuizData>(
     object : DiffUtil.ItemCallback<QuizData>() {
         override fun areItemsTheSame(oldItem: QuizData, newItem: QuizData) =
             oldItem.title == newItem.title

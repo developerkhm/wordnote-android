@@ -7,10 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.donghyeon.wordnote.domain.model.ItemData
 import com.donghyeon.wordnote.presentation.base.BaseAdapter
 import com.donghyeon.wordnote.presentation.databinding.RecyclerItemBinding
+import javax.inject.Inject
 
-class ReadAdapter(
-    private val viewModel: ReadViewModel
-) : BaseAdapter<ItemData>(
+class ReadAdapter @Inject constructor() : BaseAdapter<ItemData>(
     object : DiffUtil.ItemCallback<ItemData>() {
         override fun areItemsTheSame(oldItem: ItemData, newItem: ItemData) =
             oldItem.id == newItem.id
@@ -18,6 +17,12 @@ class ReadAdapter(
             oldItem.id == newItem.id && oldItem.word == newItem.word
     }
 ) {
+
+    private lateinit var viewModel: ReadViewModel
+
+    fun setViewModel(viewModel: ReadViewModel) {
+        this.viewModel = viewModel
+    }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
